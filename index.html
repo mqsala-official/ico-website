@@ -16,21 +16,26 @@
     <meta property="og:url" content="https://www.mqsala.com/">
     <meta property="og:title" content="mQsala | Technical & Investment Deep Dive">
     <meta property="og:description" content="Explore the mQsala ecosystem's technology, tokenomics, roadmap, and investment proposition.">
-    <meta property="og:image" content="src/Images/mQsala Logo/mQsala Logo.png">
+    <meta property="og:image" content="src/Images/mQsala%20Logo/mQsala%20Logo.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.mqsala.com/">
     <meta property="twitter:title" content="mQsala | Technical & Investment Deep Dive">
     <meta property="twitter:description" content="Explore the mQsala ecosystem's technology, tokenomics, roadmap, and investment proposition.">
-    <meta property="twitter:image" content="src/Images/mQsala Logo/mQsala Logo.png">
+    <meta property="twitter:image" content="src/Images/mQsala%20Logo/mQsala%20Logo.webp">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
     
     <style>
         :root {
@@ -207,7 +212,7 @@
     <header id="header" class="header sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold">
-                <img src="src/Images/mQsala Logo/mQsala Logo.png" alt="mQsala Logo" class="h-10 inline-block">
+                <img src="src/Images/mQsala Logo/mQsala Logo.png" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
             </a>
             <div class="hidden lg:flex items-center space-x-6">
                 <a href="#invest" class="nav-link font-medium" data-key="nav_invest">Why Invest</a>
@@ -218,7 +223,7 @@
                 <button id="lang-switcher" class="font-bold text-white hover:text-accent-gold transition-colors">AR</button>
             </div>
             <div class="lg:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open main menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -248,9 +253,9 @@
         <!-- Partners Section -->
         <section id="partners" class="py-12 bg-bg-secondary">
              <div class="container mx-auto px-6">
-                <h3 class="text-center text-text-secondary font-semibold mb-6 tracking-widest" data-key="partners_title">TRUSTED & SECURED BY</h3>
+                <h2 class="text-center text-text-secondary font-semibold mb-6 tracking-widest uppercase" data-key="partners_title">Trusted & Secured By</h2>
                 <div class="flex justify-center items-center gap-12 opacity-75">
-                    <img src="src/Images/Assure DeFi/Assure DeFi.webp" alt="Assure DeFi Logo" class="h-12" title="Assure DeFi">
+                    <img src="src/Images/Assure DeFi/Assure DeFi.webp" alt="Assure DeFi Logo" class="h-12" title="Assure DeFi" width="137" height="48">
                     <div class="text-center">
                         <p class="font-bold text-lg text-text-primary">Assure DeFi</p>
                         <p class="text-sm text-text-secondary" data-key="partners_assure">Preliminary Security Audit</p>
@@ -455,10 +460,10 @@
                     <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="team_subtitle">A blend of serial entrepreneurs, tech visionaries, and business leaders committed to the mQsala vision.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed Dilawar"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj Mohammed"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div>
+                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed Dilawar" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div>
+                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div>
+                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj Mohammed" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div>
+                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div>
                 </div>
             </div>
         </section>
@@ -471,6 +476,11 @@
 
     <!-- Modals will be appended here by JS -->
     <div id="modals-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -802,12 +812,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if(event.target.classList.contains('modal')) event.target.style.display = 'none';
         });
     }
-
-    // MathJax for rendering formulas
-    const mathJaxScript = document.createElement('script');
-    mathJaxScript.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-    mathJaxScript.async = true;
-    document.head.appendChild(mathJaxScript);
 
     // Initial Render
     switchLanguage('en');
