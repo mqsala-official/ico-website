@@ -487,18 +487,36 @@
 
     </main>
     
-    <footer class="bg-bg-secondary text-text-secondary text-center p-6">
-        <p data-key="footer_text">&copy; 2025 mQsala. All rights reserved.</p>
+    <footer class="bg-bg-secondary text-text-secondary text-center p-8">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://x.com/mQsala_official" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X" class="hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/mqsala_official/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.116 0-3.483.01-4.695.068-2.61.12-3.834 1.344-3.953 3.953-.058 1.21-.068 1.58-.068 4.695s.01 3.485.068 4.695c.12 2.61 1.344 3.834 3.953 3.953 1.21.058 1.58.068 4.695.068s3.485-.01 4.695-.068c2.61-.12 3.834-1.344 3.953-3.953.058-1.21.068-1.58.068-4.695s-.01-3.485-.068-4.695c-.12-2.61-1.344-3.834-3.953-3.953C15.483 3.975 15.116 3.965 12 3.965zM12 6.837a5.163 5.163 0 100 10.326 5.163 5.163 0 000-10.326zm0 8.528a3.363 3.363 0 110-6.726 3.363 3.363 0 010 6.726zM18.84 5.92a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
+                    </svg>
+                </a>
+                <a href="https://t.me/mqsala_official" target="_blank" rel="noopener noreferrer" aria-label="Join us on Telegram" class="hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.65 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.28 1.4.24 1.15.99l-2.4 11.5c-.21.98-1.04 1.22-1.82.75L14 16.22l-3.29 3.05c-.37.36-.88.17-1.02-.27z"/>
+                    </svg>
+                </a>
+            </div>
+            <p data-key="footer_text">&copy; 2025 mQsala. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Modals will be appended here by JS -->
     <div id="modals-container"></div>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -792,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Chart.js Instances
     const stakingCtx = document.getElementById('stakingChart');
-    if (stakingCtx) {
+    if (stakingCtx && typeof Chart !== 'undefined') {
         new Chart(stakingCtx.getContext('2d'), {
             type: 'bar',
             data: {
