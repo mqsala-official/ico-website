@@ -139,6 +139,23 @@
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.3);
             border-color: var(--accent-primary);
         }
+        .contract-card .badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            color: white;
+        }
+         html[dir="rtl"] .contract-card .badge {
+            right: auto;
+            left: 0.75rem;
+        }
+        .badge.audited { background-color: var(--success-color); }
+        .badge.planned { background-color: var(--accent-primary); }
+
 
         /* Flowchart Styles */
         .flow-step { position: relative; padding-bottom: 2.5rem; }
@@ -190,7 +207,7 @@
     <header id="header" class="header sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold">
-                <img src="src/Images/mQsala%20Logo/mQsala%20Logo.webp" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
+                <img src="src/Images/mQsala%20Logo/mQsala%20Logo.png" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
             </a>
             <div class="hidden lg:flex items-center space-x-6">
                 <a href="#invest" class="nav-link font-medium" data-key="nav_invest">Why Invest</a>
@@ -212,6 +229,7 @@
             <a href="#tech" class="block py-2 px-6 text-sm nav-link" data-key="nav_tech_mob">Technology</a>
             <a href="#tokenomics" class="block py-2 px-6 text-sm nav-link" data-key="nav_tokenomics_mob">Tokenomics</a>
             <a href="#team" class="block py-2 px-6 text-sm nav-link" data-key="nav_team_mob">Team</a>
+            <button id="lang-switcher-mobile" class="w-full text-left py-2 px-6 text-sm text-white font-bold hover:bg-surface-secondary">AR</button>
         </div>
     </header>
 
@@ -276,7 +294,7 @@
                 <div id="roadmap-timeline" class="timeline">
                     <!-- JS will populate this -->
                 </div>
-                <p class="text-center text-text-secondary mt-12" data-key="roadmap_more">AND more, please check our whitepaper</p>
+                 <p class="text-center text-lg text-accent-secondary mt-12" data-key="roadmap_more">AND more, please check our <a href="https://docs.mqsala.com" target="_blank" class="font-bold underline hover:text-white">whitepaper</a></p>
             </div>
         </section>
         
@@ -306,24 +324,24 @@
                          <div class="card p-8 rounded-xl text-center flex flex-col items-center">
                             <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_frontend">Frontend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_frontend_desc">Modern, responsive, and cross-platform user interfaces.</p>
                             <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                                <div class="tech-item-icon" title="Next.js"><svg class="h-20 w-20" fill="white" role="img" viewBox="0 0 24 24"><path d="M12 0L1.706 6v12L12 24l10.294-6V6L12 0zm8.212 16.941L12 21.118l-8.212-4.177V7.06L12 2.882l8.212 4.177v9.882zM12 4.33L4.824 8.118v7.764L12 19.67l7.176-3.788V8.118L12 4.33zm-2.823 4.118h1.41v7.058h1.412V8.448h1.412v7.058h1.412V6.33h-5.647v2.118z"/></svg></div>
-                                <div class="tech-item-icon" title="React Native"><svg class="h-20 w-20" fill="#61DAFB" role="img" viewBox="0 0 24 24"><path d="M12.032 24a12.05 12.05 0 0 0 11.26-15.655 12.05 12.05 0 0 0-21.603 5.56A12.05 12.05 0 0 0 12.032 24zm0-21.944c-2.324 0-4.062.773-5.26 2.458-.87 1.22-.99 2.495-.99 4.027 0 2.228.604 3.793 1.832 4.908 1.25 1.135 2.89 1.74 4.88 1.74s4.234-.72 5.259-2.228c.732-1.1.92-2.19.92-3.644 0-2.313-.483-3.868-1.574-5.06-1.12-1.25-2.68-2.2-4.058-2.2zm0 13.56c-1.42 0-2.61-.43-3.37-1.34-.61-.73-.8-1.636-.8-2.735 0-1.18.25-2.14.75-2.86.51-.72 1.28-1.07 2.33-1.07s1.82.35 2.33 1.07c.5.72.75 1.68.75 2.86 0 1.1-.19 2.005-.8 2.735-.76.91-1.95 1.34-3.39 1.34z"/></svg></div>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" class="h-20 w-20" title="Next.js" width="80" height="80"/>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native Logo" class="h-20 w-20" title="React Native" width="80" height="80"/>
                             </div>
                         </div>
                         <div class="card p-8 rounded-xl text-center flex flex-col items-center">
                             <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_backend">Backend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_backend_desc">A scalable microservices architecture for our core logic.</p>
                             <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                               <div class="tech-item-icon" title="NestJS"><svg class="h-20 w-20" fill="#E0234E" role="img" viewBox="0 0 24 24"><path d="M12 2.6L4.7 6.4v7.2l7.3 3.8 7.3-3.8V6.4L12 2.6zM12 0l8.7 4.8v9.6l-8.7 4.8-8.7-4.8V4.8L12 0zm0 7.4c-2.8 0-5.1 2.3-5.1 5.1s2.3 5.1 5.1 5.1 5.1-2.3 5.1-5.1-2.3-5.1-5.1-5.1zm0 8.4c-1.8 0-3.3-1.5-3.3-3.3s1.5-3.3 3.3-3.3 3.3 1.5 3.3 3.3-1.5 3.3-3.3 3.3z"/></svg></div>
-                               <div class="tech-item-icon" title="PostgreSQL"><svg class="h-20 w-20" fill="#336791" role="img" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5h-2.5v-7H6v-2h4.5v9zM18 17.5h-2.5v-7H13v-2h5v9z"/></svg></div>
-                               <div class="tech-item-icon" title="MongoDB"><svg class="h-20 w-20" fill="#47A248" role="img" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.5 13.5c-1.5 0-2.7-1.2-2.7-2.7 0-1.5 1.2-2.7 2.7-2.7s2.7 1.2 2.7 2.7c0 1.5-1.2 2.7-2.7 2.7zm5 0c-1.5 0-2.7-1.2-2.7-2.7 0-1.5 1.2-2.7 2.7-2.7s2.7 1.2 2.7 2.7c0 1.5-1.2 2.7-2.7 2.7z"/></svg></div>
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" alt="NestJS Logo" class="h-20 w-20" title="NestJS" width="80" height="80"/>
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Logo" class="h-20 w-20" title="PostgreSQL" width="80" height="80"/>
+                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB Logo" class="h-20 w-20" title="MongoDB" width="80" height="80"/>
                             </div>
                         </div>
                         <div class="card p-8 rounded-xl text-center flex flex-col items-center">
                             <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_infra">Infrastructure</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_infra_desc">Robust, scalable, and automated infrastructure for high availability.</p>
                             <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                                <div class="tech-item-icon" title="AWS EKS"><svg class="h-20 w-20" fill="#FF9900" role="img" viewBox="0 0 24 24"><path d="M12.48 16.32c-1.95 0-3.52-1.57-3.52-3.52s1.57-3.52 3.52-3.52 3.52 1.57 3.52 3.52-1.57 3.52-3.52 3.52zm0-5.76c-1.24 0-2.24 1-2.24 2.24s1 2.24 2.24 2.24 2.24-1 2.24-2.24-1-2.24-2.24-2.24zM21.6 14.4c-.1-.65-.35-1.26-.7-1.78l-1.35-2.01c-.35-.53-.8-1-1.34-1.34L16.2 8.4c-.52-.35-1.13-.6-1.78-.7L12.48 2.4c-.65-.1-1.32-.1-1.97 0L8.56 7.7c-.65.1-1.26.35-1.78.7l-2.01 1.35c-.53.35-1 .8-1.34 1.34l-1.35 2.01c-.35.52-.6 1.13-.7 1.78L.72 12.48c-.1.65-.1 1.32 0 1.97l.68 4.05c.1.65.35 1.26.7 1.78l1.35 2.01c.35.53.8 1 1.34 1.34l2.01 1.35c.52.35 1.13.6 1.78.7l4.05.68c.65.1 1.32.1 1.97 0l4.05-.68c.65-.1 1.26-.35 1.78-.7l2.01-1.35c.53-.35 1-.8 1.34-1.34l1.35-2.01c-.35-.52-.6 1.13-.7 1.78l.68-4.05c.1-.65.1-1.32 0-1.97zm-2.4 5.28l-1.62 2.4c-.28.42-.64.78-1.06 1.06l-2.4 1.62c-.42.28-.88.5-1.38.6l-4.86.82c-.5.08-1 .08-1.5 0l-4.86-.82c-.5-.08-1-.32-1.38-.6l-2.4-1.62c-.42-.28-.78-.64-1.06-1.06l-1.62-2.4c-.28-.42-.5-.88-.6-1.38l-.82-4.86c-.08-.5-.08-1 0-1.5l.82-4.86c.08-.5.32-1 .6-1.38l1.62-2.4c.28-.42.64-.78 1.06-1.06l2.4-1.62c.42-.28.88-.5 1.38-.6l4.86-.82c.5-.08 1-.08 1.5 0l4.86.82c.5.08 1 .32 1.38.6l2.4 1.62c.42.28.78-.64 1.06 1.06l1.62 2.4c.28.42.5.88.6 1.38l.82 4.86c.08.5.08 1 0 1.5l-.82 4.86c-.1.5-.32.98-.6 1.38z"/></svg></div>
-                                <div class="tech-item-icon" title="Docker"><svg class="h-20 w-20" fill="#2496ED" role="img" viewBox="0 0 24 24"><path d="M22.128 7.368c-1.35-2.04-3.876-4.596-3.876-4.596s-2.04 1.788-2.652 2.952c-.612 1.164-.816 2.376-.816 2.376s2.328.564 3.468 1.224c1.14 0.66 1.488 1.116 1.488 1.116s.768-2.136 2.388-3.072zm-7.656 8.928H5.256V8.688h1.836v6.3h7.38v-6.3h1.836v7.608zm-1.836 2.088H3.144a.492.492 0 0 1-.492-.492v-2.088h1.836v1.272h10.488v-1.272h1.836v2.088a.492.492 0 0 1-.492.492zm-3.06-12.72h1.836V4.188H9.576v1.476zm-2.448 0h1.836V4.188H7.128v1.476zm-2.448 0h1.836V4.188H4.68v1.476zm-2.448 0h1.836V4.188H2.232v1.476zM22.884 12.24c0 .816-.18 1.836-.18 1.836s-1.836 2.856-5.016 2.856a6.39 6.39 0 0 1-5.064-2.856s-.18-1.02-.18-1.836c0-.816.18-1.836.18-1.836s1.836-2.856 5.016-2.856a6.39 6.39 0 0 1 5.064 2.856s.18 1.02.18 1.836zm-2.448 0c0-1.02-.564-3.168-2.568-3.168-2.004 0-2.568 2.148-2.568 3.168 0 1.02.564 3.168 2.568 3.168 2.004 0 2.568-2.148 2.568-3.168z"/></svg></div>
-                                <div class="tech-item-icon" title="Argo CD"><svg class="h-20 w-20" fill="#F4835A" role="img" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS Logo" class="h-20 w-20" title="AWS EKS" width="80" height="80"/>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" class="h-20 w-20" title="Docker" width="80" height="80"/>
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-plain.svg" alt="ArgoCD Logo" class="h-20 w-20" title="Argo CD" width="80" height="80"/>
                             </div>
                         </div>
                     </div>
@@ -331,21 +349,25 @@
 
                 <!-- Smart Contracts -->
                 <div class="mb-20">
-                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300">Audited Smart Contract Suite</h3>
+                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300">Audited & Planned Smart Contract Suite</h3>
                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="token-modal">
+                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="token-modal">
+                            <div class="badge audited">Audited</div>
                             <h3 class="text-xl font-semibold text-white mb-2">mQsalaToken</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Core BEP-20 utility token with role-based access and deflationary mechanics.</p>
                             <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 10v-1m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2m-6-4.25a2.25 2.25 0 012.25-2.25h8.5A2.25 2.25 0 0121 12.25v.5A2.25 2.25 0 0118.75 15h-8.5A2.25 2.25 0 018 12.75v-.5z"/></svg>
                         </div>
-                        <div class="card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="ico-modal">
+                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="ico-modal">
+                            <div class="badge planned">Planned</div>
                             <h3 class="text-xl font-semibold text-white mb-2">ICO & Vesting</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p>
                             <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         </div>
-                        <div class="card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="staking-modal">
+                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="staking-modal">
+                             <div class="badge planned">Planned</div>
                             <h3 class="text-xl font-semibold text-white mb-2">Staking</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p>
                             <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                         </div>
-                        <div class="card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="dao-modal">
+                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="dao-modal">
+                             <div class="badge planned">Planned</div>
                             <h3 class="text-xl font-semibold text-white mb-2">Governance (DAO)</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p>
                             <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                         </div>
@@ -456,10 +478,11 @@
     <!-- Modals will be appended here by JS -->
     <div id="modals-container"></div>
     
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -654,6 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         langSwitcher.textContent = lang === 'ar' ? 'EN' : 'AR';
+        langSwitcherMobile.textContent = lang === 'ar' ? 'EN' : 'AR';
         
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
@@ -697,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
         container.innerHTML = ''; // Clear previous content
         roadmapData.forEach((item, index) => {
-            const isLeft = index % 2 === 0;
+            const isLeft = window.innerWidth > 768 ? index % 2 === 0 : true;
             const itemDiv = document.createElement('div');
             itemDiv.className = `timeline-item ${isLeft ? 'left' : 'right'} ${item.achieved ? 'achieved' : ''}`;
 
@@ -727,7 +751,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Event Listeners
     const langSwitcher = document.getElementById('lang-switcher');
+    const langSwitcherMobile = document.getElementById('lang-switcher-mobile');
     if (langSwitcher) langSwitcher.addEventListener('click', () => switchLanguage(currentLang === 'en' ? 'ar' : 'en'));
+    if (langSwitcherMobile) langSwitcherMobile.addEventListener('click', () => switchLanguage(currentLang === 'en' ? 'ar' : 'en'));
 
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     if(mobileMenuButton) mobileMenuButton.addEventListener('click', () => {
