@@ -10,6 +10,7 @@
     <meta name="keywords" content="mQsala, mQsala Coin, cryptocurrency, blockchain, laundry, on-demand service, ICO, BEP-20, utility token, Saudi Arabia, Dubai, MENA, staking, DAO, tokenomics, tech stack">
     <meta name="author" content="mQsala">
     <link rel="canonical" href="https://www.mqsala.com/">
+    <link rel="icon" href="src/Images/mQsala%20Logo/mQsala%20Logo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -153,44 +154,21 @@
         html[dir="rtl"] .flow-dot { right: -0.0625rem; }
 
         /* New Vertical Timeline */
-        .timeline-container { position: relative; max-width: 48rem; margin: 0 auto; }
-        .timeline-container::after { content: ''; position: absolute; width: 4px; background-color: var(--surface-secondary); top: 0; bottom: 0; margin-left: -2px; }
-        html[dir="ltr"] .timeline-container::after { left: 50%; }
-        html[dir="rtl"] .timeline-container::after { right: 50%; }
+        .timeline { position: relative; max-width: 48rem; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--surface-secondary); top: 0; bottom: 0; z-index: 0; }
+        html[dir="ltr"] .timeline::after { left: 1.25rem; transform: translateX(-50%); }
+        html[dir="rtl"] .timeline::after { right: 1.25rem; transform: translateX(50%); }
 
-        .timeline-item { position: relative; width: 50%; padding: 10px 40px; }
-        html[dir="ltr"] .timeline-item.left { left: 0; }
-        html[dir="ltr"] .timeline-item.right { left: 50%; }
-        html[dir="rtl"] .timeline-item.left { right: 0; }
-        html[dir="rtl"] .timeline-item.right { right: 50%; }
+        .timeline-item { position: relative; padding-bottom: 2rem; }
+        html[dir="ltr"] .timeline-item { padding-left: 3.5rem; }
+        html[dir="rtl"] .timeline-item { padding-right: 3.5rem; }
 
-        .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; background-color: var(--bg-primary); border: 4px solid var(--accent-primary); top: 15px; border-radius: 50%; z-index: 1; }
-        html[dir="ltr"] .timeline-item.left::after { right: -12.5px; }
-        html[dir="ltr"] .timeline-item.right::after { left: -12.5px; }
-        html[dir="rtl"] .timeline-item.left::after { left: -12.5px; }
-        html[dir="rtl"] .timeline-item.right::after { right: -12.5px; }
-
-        .timeline-item.achieved::after { border-color: var(--success-color); background-color: var(--success-color); }
-        .timeline-item.achieved::before { content: '✓'; position: absolute; color: white; z-index: 2; top: 16px; font-size: 14px; font-weight: bold; }
-        html[dir="ltr"] .timeline-item.achieved.left::before { right: -6.5px; }
-        html[dir="ltr"] .timeline-item.achieved.right::before { left: -6.5px; }
-        html[dir="rtl"] .timeline-item.achieved.left::before { left: -6.5px; }
-        html[dir="rtl"] .timeline-item.achieved.right::before { right: -6.5px; }
+        .timeline-dot { position: absolute; top: 0; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 9999px; border: 4px solid var(--surface-secondary); z-index: 1; font-weight: bold; color:white; }
+        html[dir="ltr"] .timeline-dot { left: 1.25rem; transform: translateX(-50%); }
+        html[dir="rtl"] .timeline-dot { right: 1.25rem; transform: translateX(50%); }
         
-        .timeline-content { position: relative; background: var(--surface-primary); border-radius: 0.5rem; padding: 1rem; border: 1px solid var(--border-primary); }
-
-        @media screen and (max-width: 768px) {
-            .timeline-container::after { left: 12px; }
-            html[dir="rtl"] .timeline-container::after { left: auto; right: 12px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
-            html[dir="rtl"] .timeline-item { padding-left: 10px; padding-right: 50px; }
-            .timeline-item.left, .timeline-item.right { left: 0; }
-            html[dir="rtl"] .timeline-item.left, html[dir="rtl"] .timeline-item.right { right: 0; }
-            .timeline-item.left::after, .timeline-item.right::after { left: -12.5px; }
-            html[dir="rtl"] .timeline-item.left::after, html[dir="rtl"] .timeline-item.right::after { right: -12.5px; }
-            .timeline-item.achieved.left::before, .timeline-item.achieved.right::before { left: -6.5px; }
-            html[dir="rtl"] .timeline-item.achieved.left::before, html[dir="rtl"] .timeline-item.achieved.right::before { right: -6.5px; }
-        }
+        .timeline-dot.achieved { background-color: var(--success-color); }
+        .timeline-dot.pending { background-color: var(--accent-primary); }
 
         /* Modal Styles */
         .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); animation: fadeIn 0.4s; }
@@ -212,7 +190,7 @@
     <header id="header" class="header sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold">
-                <img src="src/Images/mQsala Logo/mQsala Logo.png" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
+                <img src="src/Images/mQsala%20Logo/mQsala%20Logo.webp" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
             </a>
             <div class="hidden lg:flex items-center space-x-6">
                 <a href="#invest" class="nav-link font-medium" data-key="nav_invest">Why Invest</a>
@@ -251,11 +229,11 @@
         </section>
 
         <!-- Partners Section -->
-        <section id="partners" class="py-12 bg-white">
+        <section id="partners" class="py-12 bg-bg-secondary">
              <div class="container mx-auto px-6">
                 <h2 class="text-center text-text-secondary font-semibold mb-6 tracking-widest uppercase" data-key="partners_title">Trusted & Secured By</h2>
                 <div class="flex justify-center items-center gap-12 opacity-75">
-                    <img src="src/Images/Assure DeFi/Assure Defi.png" alt="Assure DeFi Logo" class="h-12" title="Assure DeFi" width="137" height="48">
+                    <img src="src/Images/Assure DeFi/Assure Defi.png" alt="Assure DeFi Logo" class="h-12 bg-white p-1 rounded-md" title="Assure DeFi" width="137" height="48">
                     <div class="text-center">
                         <p class="font-bold text-lg text-text-primary">Assure DeFi</p>
                         <p class="text-sm text-text-secondary" data-key="partners_assure">Preliminary Security Audit</p>
@@ -295,9 +273,10 @@
                     <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="roadmap_title">Our Journey & Future Roadmap</h2>
                     <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="roadmap_subtitle">From a solidified idea to a global expansion plan, we are executing with precision.</p>
                 </div>
-                <div id="roadmap-timeline" class="timeline-container">
+                <div id="roadmap-timeline" class="timeline">
                     <!-- JS will populate this -->
                 </div>
+                <p class="text-center text-text-secondary mt-12" data-key="roadmap_more">AND more, please check our whitepaper</p>
             </div>
         </section>
         
@@ -477,11 +456,10 @@
     <!-- Modals will be appended here by JS -->
     <div id="modals-container"></div>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -497,6 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
             invest_card2_title: 'The Problem: Inefficiency', invest_card2_desc: 'Customers face inconvenient, cash-based services with no transparency. Laundry operators struggle with outdated tools, inefficient logistics, and a lack of data to drive growth.',
             invest_card3_title: 'The Solution: mQsala Ecosystem', invest_card3_desc: 'A four-app platform for customers, drivers, laundries, and admins, integrated with the mQsala token for payments, staking, loyalty rewards, and governance.',
             roadmap_title: 'Our Journey & Future Roadmap', roadmap_subtitle: 'From a solidified idea to a global expansion plan, we are executing with precision.',
+            roadmap_more: 'AND more, please check our whitepaper',
             tech_title: 'A Deep Dive into Our Technology', tech_subtitle: 'Explore the architecture, stack, and processes that make mQsala a robust and scalable platform.',
             arch_title: 'Microservices Architecture', arch_subtitle: 'Click any component to explore its function within our robust, decoupled ecosystem.',
             arch_info_title: 'Select a Component', arch_info_default: 'Click a component in the diagram to see its details, strategic purpose, and core technologies.',
@@ -555,6 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
             invest_card2_title: 'المشكلة: انعدام الكفاءة', invest_card2_desc: 'يواجه العملاء خدمات غير مريحة تعتمد على الدفع النقدي مع انعدام الشفافية. ويعاني أصحاب المغاسل من أدوات قديمة ولوجستيات غير فعالة ونقص في البيانات.',
             invest_card3_title: 'الحل: منظومة mQsala', invest_card3_desc: 'منصة بأربعة تطبيقات للعملاء والسائقين والمغاسل والمديرين، متكاملة مع توكن mQsala للمدفوعات، والـ Staking، ومكافآت الولاء، والحوكمة.',
             roadmap_title: 'رحلتنا وخارطة الطريق المستقبلية', roadmap_subtitle: 'من فكرة راسخة إلى خطة توسع عالمية، نحن ننفذ بدقة.',
+            roadmap_more: 'والمزيد، يرجى مراجعة المستند التقني الخاص بنا',
             tech_title: 'نظرة تقنية عميقة', tech_subtitle: 'استكشف البنية، الحزم التقنية، والعمليات التي تجعل من mQsala منصة قوية وقابلة للتطوير.',
             arch_title: 'بنية الخدمات المصغرة', arch_subtitle: 'انقر على أي مكون لاستكشاف وظيفته داخل منظومتنا القوية والمفصولة.',
             arch_info_title: 'اختر مكوناً', arch_info_default: 'انقر على أحد المكونات في الرسم البياني لعرض تفاصيله وهدفه الاستراتيجي والتقنيات الأساسية.',
@@ -722,6 +702,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemDiv.className = `timeline-item ${isLeft ? 'left' : 'right'} ${item.achieved ? 'achieved' : ''}`;
 
             let contentHtml = `
+                <div class="timeline-dot ${item.achieved ? 'achieved' : 'pending'}">${item.achieved ? '✓' : ''}</div>
                 <div class="timeline-content">
                     <h3 class="font-bold text-accent-secondary" data-key="${item.periodKey}_period">${translations[currentLang][item.periodKey + '_period']}</h3>
                     <p class="text-sm text-text-secondary" data-key="${item.taskKey}">${translations[currentLang][item.taskKey]}</p>
@@ -802,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', () => {
                 const modalId = card.dataset.modalTarget;
                 document.getElementById(modalId).style.display = 'block';
-                Prism.highlightAll();
+                if(window.Prism) Prism.highlightAll();
             });
         });
         document.querySelectorAll('.close-btn').forEach(button => {
