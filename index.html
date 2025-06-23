@@ -28,8 +28,8 @@
     <title>mQsala | Technical & Investment Deep Dive</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="A comprehensive deep-dive into the mQsala ecosystem. Explore our technology, tokenomics, roadmap, and investment proposition for the future of on-demand services.">
-    <meta name="keywords" content="mQsala, mQsala Coin, cryptocurrency, blockchain, laundry, on-demand service, ICO, BEP-20, utility token, Saudi Arabia, Dubai, MENA, staking, DAO, tokenomics, tech stack">
+    <meta name="description" content="Deep-dive into the mQsala ecosystem: UUPS upgradeable BEP-20 with ERC20Votes, whitelist transfers, tokenomics, roadmap, and on-demand services.">
+    <meta name="keywords" content="mQsala, mQsala Coin, cryptocurrency, blockchain, laundry, on-demand service, ICO, BEP-20, utility token, Saudi Arabia, Dubai, MENA, staking, DAO, tokenomics, tech stack, UUPS upgradeable, ERC20Votes, whitelist transfers">
     <meta name="author" content="mQsala">
     <link rel="canonical" href="https://www.mqsala.com/">
     <link rel="icon" href="src/Images/mQsala%20Logo/mQsala%20Logo.png" type="image/png">
@@ -38,14 +38,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mqsala.com/">
     <meta property="og:title" content="mQsala | Technical & Investment Deep Dive">
-    <meta property="og:description" content="Explore the mQsala ecosystem's technology, tokenomics, roadmap, and investment proposition.">
+    <meta property="og:description" content="Explore the mQsala UUPS upgradeable BEP-20 token, with ERC20Votes, whitelist transfers, detailed tokenomics, roadmap, and our investment proposition.">
     <meta property="og:image" content="src/Images/mQsala%20Logo/mQsala%20Logo.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.mqsala.com/">
     <meta property="twitter:title" content="mQsala | Technical & Investment Deep Dive">
-    <meta property="twitter:description" content="Explore the mQsala ecosystem's technology, tokenomics, roadmap, and investment proposition.">
+    <meta property="twitter:description" content="Explore the mQsala UUPS upgradeable BEP-20 token, with ERC20Votes, whitelist transfers, detailed tokenomics, roadmap, and our investment proposition.">
     <meta property="twitter:image" content="src/Images/mQsala%20Logo/mQsala%20Logo.webp">
     
     <!-- Preload critical resources -->
@@ -73,6 +73,7 @@
             --accent-secondary: #60a5fa;
             --accent-gold: #f59e0b;
             --success-color: #22c55e;
+            --warning-color: #f59e0b; /* For "Under Audit" */
         }
 
         body {
@@ -155,6 +156,13 @@
             overflow: hidden;
             border-radius: 1rem;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-8px);
@@ -176,8 +184,18 @@
             left: 0.75rem;
         }
         .badge.audited { background-color: var(--success-color); }
+        .badge.under-audit { background-color: var(--warning-color); }
         .badge.planned { background-color: var(--accent-primary); }
-
+        .more-info-btn {
+            margin-top: auto;
+            padding-top: 1rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .more-info-btn:hover {
+            color: var(--text-primary);
+        }
 
         /* Flowchart Styles */
         .flow-step { position: relative; padding-bottom: 2.5rem; }
@@ -307,16 +325,22 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card p-6">
-                        <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card1_title">Massive Market Opportunity</h3>
-                        <p class="text-text-secondary" data-key="invest_card1_desc">The MENA laundry market is valued at over $5 billion, yet it remains fragmented and technologically underserved. mQsala is positioned to capture a significant market share by providing a modern, unified solution.</p>
+                        <div class="card-content">
+                            <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card1_title">Massive Market Opportunity</h3>
+                            <p class="text-text-secondary" data-key="invest_card1_desc">The MENA laundry market is valued at over $5 billion, yet it remains fragmented and technologically underserved. mQsala is positioned to capture a significant market share by providing a modern, unified solution.</p>
+                        </div>
                     </div>
                     <div class="card p-6">
-                        <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card2_title">The Problem: Inefficiency</h3>
-                        <p class="text-text-secondary" data-key="invest_card2_desc">Customers face inconvenient, cash-based services with no transparency. Laundry operators struggle with outdated tools, inefficient logistics, and a lack of data to drive growth.</p>
+                        <div class="card-content">
+                            <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card2_title">The Problem: Inefficiency</h3>
+                            <p class="text-text-secondary" data-key="invest_card2_desc">Customers face inconvenient, cash-based services with no transparency. Laundry operators struggle with outdated tools, inefficient logistics, and a lack of data to drive growth.</p>
+                        </div>
                     </div>
                     <div class="card p-6">
-                        <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card3_title">The Solution: mQsala Ecosystem</h3>
-                        <p class="text-text-secondary" data-key="invest_card3_desc">A four-app platform for customers, drivers, laundries, and admins, integrated with the mQsala token for payments, staking, loyalty rewards, and governance.</p>
+                        <div class="card-content">
+                            <h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card3_title">The Solution: mQsala Ecosystem</h3>
+                            <p class="text-text-secondary" data-key="invest_card3_desc">A four-app platform for customers, drivers, laundries, and admins, integrated with the mQsala token for payments, staking, loyalty rewards, and governance.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -359,27 +383,33 @@
                 <div class="mb-20">
                      <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="stack_title">Enterprise-Grade Technology Stack</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                         <div class="card p-8 rounded-xl text-center flex flex-col items-center">
-                            <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_frontend">Frontend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_frontend_desc">Modern, responsive, and cross-platform user interfaces.</p>
-                            <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" class="h-20 w-20" title="Next.js" width="80" height="80"/>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native Logo" class="h-20 w-20" title="React Native" width="80" height="80"/>
+                         <div class="card p-8 rounded-xl text-center">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_frontend">Frontend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_frontend_desc">Modern, responsive, and cross-platform user interfaces.</p>
+                                <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" class="h-20 w-20" title="Next.js" width="80" height="80"/>
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native Logo" class="h-20 w-20" title="React Native" width="80" height="80"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="card p-8 rounded-xl text-center flex flex-col items-center">
-                            <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_backend">Backend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_backend_desc">A scalable microservices architecture for our core logic.</p>
-                            <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" alt="NestJS Logo" class="h-20 w-20" title="NestJS" width="80" height="80" />
-                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Logo" class="h-20 w-20" title="PostgreSQL" width="80" height="80"/>
-                               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB Logo" class="h-20 w-20" title="MongoDB" width="80" height="80"/>
+                        <div class="card p-8 rounded-xl text-center">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_backend">Backend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_backend_desc">A scalable microservices architecture for our core logic.</p>
+                                <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
+                                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" alt="NestJS Logo" class="h-20 w-20" title="NestJS" width="80" height="80" />
+                                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Logo" class="h-20 w-20" title="PostgreSQL" width="80" height="80"/>
+                                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB Logo" class="h-20 w-20" title="MongoDB" width="80" height="80"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="card p-8 rounded-xl text-center flex flex-col items-center">
-                            <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_infra">Infrastructure</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_infra_desc">Robust, scalable, and automated infrastructure for high availability.</p>
-                            <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS Logo" class="h-20 w-20" title="AWS EKS" width="80" height="80" />
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" class="h-20 w-20" title="Docker" width="80" height="80"/>
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-plain.svg" alt="ArgoCD Logo" class="h-20 w-20" title="Argo CD" width="80" height="80"/>
+                        <div class="card p-8 rounded-xl text-center">
+                            <div class="card-content">
+                                <h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_infra">Infrastructure</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_infra_desc">Robust, scalable, and automated infrastructure for high availability.</p>
+                                <div class="flex justify-center items-center flex-wrap gap-6 mt-auto">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS Logo" class="h-20 w-20" title="AWS EKS" width="80" height="80" />
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" class="h-20 w-20" title="Docker" width="80" height="80"/>
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-plain.svg" alt="ArgoCD Logo" class="h-20 w-20" title="Argo CD" width="80" height="80"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -389,25 +419,41 @@
                 <div class="mb-20">
                      <h3 class="text-2xl font-bold mb-8 text-center text-blue-300">Audited & Planned Smart Contract Suite</h3>
                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="token-modal">
-                            <div class="badge audited">Audited</div>
-                            <h3 class="text-xl font-semibold text-white mb-2">mQsalaToken</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Core BEP-20 utility token with role-based access and deflationary mechanics.</p>
-                            <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 10v-1m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2m-6-4.25a2.25 2.25 0 012.25-2.25h8.5A2.25 2.25 0 0121 12.25v.5A2.25 2.25 0 0118.75 15h-8.5A2.25 2.25 0 018 12.75v-.5z"/></svg>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="token-modal">
+                            <div class="card-content">
+                                <div class="badge under-audit">Under Audit</div>
+                                <h3 class="text-xl font-semibold text-white mb-2">mQsalaToken</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow">Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.</p>
+                                <img src="src/Images/mQsala%20Logo/mQsala%20Logo.png" alt="mQsala Token Logo" class="h-16 w-16 mx-auto mt-4">
+                                <div class="more-info-btn" data-key="more_info">More Information</div>
+                            </div>
                         </div>
-                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="ico-modal">
-                            <div class="badge planned">Planned</div>
-                            <h3 class="text-xl font-semibold text-white mb-2">ICO & Vesting</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p>
-                            <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="ico-modal">
+                            <div class="card-content">
+                                <div class="badge planned">Planned</div>
+                                <h3 class="text-xl font-semibold text-white mb-2">ICO & Vesting</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p>
+                                <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                                <div class="more-info-btn" data-key="more_info">More Information</div>
+                            </div>
                         </div>
-                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="staking-modal">
-                             <div class="badge planned">Planned</div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Staking</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p>
-                            <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="staking-modal">
+                            <div class="card-content">
+                                 <div class="badge planned">Planned</div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Staking</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p>
+                                <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                                <div class="more-info-btn" data-key="more_info">More Information</div>
+                            </div>
                         </div>
-                        <div class="card contract-card p-6 rounded-xl flex flex-col text-center items-center cursor-pointer" data-modal-target="dao-modal">
-                             <div class="badge planned">Planned</div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Governance (DAO)</h3><p class="text-sm text-gray-400 mb-4 flex-grow">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p>
-                            <svg class="h-16 w-16 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="dao-modal">
+                            <div class="card-content">
+                                 <div class="badge planned">Planned</div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Governance (DAO)</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p>
+                                <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                <div class="more-info-btn" data-key="more_info">More Information</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -432,35 +478,39 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="tokenomics_full_title">Token Economy: Allocation & Staking</h2>
-                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="tokenomics_full_subtitle">A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment.</p>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="tokenomics_full_subtitle">A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment. Auto-burn starts at 0% and can be raised (max 20%) by DAO vote.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <!-- Tokenomics Allocation -->
                     <div class="card p-6">
-                         <h3 class="text-2xl font-bold text-white mb-4 text-center" data-key="tokenomics_alloc_title">Allocation & Vesting Breakdown</h3>
-                         <div class="w-full max-w-6xl mt-8">
-                            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-                                <div>
-                                    <h4 class="text-xl font-bold text-accent-secondary mb-4 text-center" data-key="sale_rounds_title">Sale Rounds – 40%</h4>
-                                    <div class="bg-surface-secondary rounded-lg p-0 table-container">
-                                        <table class="min-w-full"><thead class="bg-surface-primary/50"><tr><th class="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="round_th">Round</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="tokens_th">Tokens (M)</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="cliff_th">Cliff</th></tr></thead><tbody id="saleRoundsTable" class="divide-y divide-border-primary"></tbody></table>
+                         <div class="card-content">
+                             <h3 class="text-2xl font-bold text-white mb-4 text-center" data-key="tokenomics_alloc_title">Allocation & Vesting Breakdown</h3>
+                             <div class="w-full max-w-6xl mt-8">
+                                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-accent-secondary mb-4 text-center" data-key="sale_rounds_title">Sale Rounds – 40%</h4>
+                                        <div class="bg-surface-secondary rounded-lg p-0 table-container">
+                                            <table class="min-w-full"><thead class="bg-surface-primary/50"><tr><th class="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="round_th">Round</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="tokens_th">Tokens (M)</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="cliff_th">Cliff</th></tr></thead><tbody id="saleRoundsTable" class="divide-y divide-border-primary"></tbody></table>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-bold text-accent-secondary mb-4 text-center" data-key="internal_alloc_title">Internal Allocation – 60%</h4>
-                                    <div class="bg-surface-secondary rounded-lg p-0 table-container">
-                                        <table class="min-w-full"><thead class="bg-surface-primary/50"><tr><th class="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="bucket_th">Bucket</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="tokens_th_2">Tokens (M)</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="cliff_th_2">Cliff</th></tr></thead><tbody id="internalAllocationTable" class="divide-y divide-border-primary"></tbody></table>
+                                    <div>
+                                        <h4 class="text-xl font-bold text-accent-secondary mb-4 text-center" data-key="internal_alloc_title">Internal Allocation – 60%</h4>
+                                        <div class="bg-surface-secondary rounded-lg p-0 table-container">
+                                            <table class="min-w-full"><thead class="bg-surface-primary/50"><tr><th class="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="bucket_th">Bucket</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="tokens_th_2">Tokens (M)</th><th class="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider" data-key="cliff_th_2">Cliff</th></tr></thead><tbody id="internalAllocationTable" class="divide-y divide-border-primary"></tbody></table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                         </div>
                     </div>
                     <!-- Staking Protocol -->
                     <div class="card p-6">
-                        <h3 class="font-bold text-2xl mb-4 text-center text-white" data-key="staking_title">Staking Protocol</h3>
-                        <p class="mt-2 text-text-secondary text-center mb-6" data-key="staking_subtitle">Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.</p>
-                        <div>
-                             <canvas id="stakingChart"></canvas>
+                        <div class="card-content">
+                            <h3 class="font-bold text-2xl mb-4 text-center text-white" data-key="staking_title">Staking Protocol</h3>
+                            <p class="mt-2 text-text-secondary text-center mb-6" data-key="staking_subtitle">Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.</p>
+                            <div>
+                                 <canvas id="stakingChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -476,16 +526,20 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     <div class="card p-6">
-                        <h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card1_title">Quadratic Voting & Sybil Resistance</h3>
-                        <p class="text-text-secondary mb-4" data-key="governance_card1_p1">Standard voting is 1 token = 1 vote. Quadratic voting calculates power as $$\\sqrt{\\text{tokenAmount}}$$, significantly reducing the influence of large "whale" wallets and encouraging broader participation.</p>
-                        <p class="text-red-400 font-semibold mb-2" data-key="governance_card1_p2_problem">The Problem:</p>
-                        <p class="text-text-secondary mb-4" data-key="governance_card1_p3">A whale could bypass this by splitting tokens across thousands of wallets (a Sybil attack).</p>
-                        <p class="text-green-400 font-semibold mb-2" data-key="governance_card1_p4_solution">The Solution: Proof-of-Personhood</p>
-                        <p class="text-text-secondary" data-key="governance_card1_p5">By requiring a privacy-preserving verification (e.g., World ID), the DAO ensures that each vote comes from a unique human, making the quadratic voting system fair and robust.</p>
+                        <div class="card-content">
+                            <h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card1_title">Quadratic Voting & Sybil Resistance</h3>
+                            <p class="text-text-secondary mb-4" data-key="governance_card1_p1">Standard voting is 1 token = 1 vote. Quadratic voting calculates power as $$\\sqrt{\\text{tokenAmount}}$$, significantly reducing the influence of large "whale" wallets and encouraging broader participation.</p>
+                            <p class="text-red-400 font-semibold mb-2" data-key="governance_card1_p2_problem">The Problem:</p>
+                            <p class="text-text-secondary mb-4" data-key="governance_card1_p3">A whale could bypass this by splitting tokens across thousands of wallets (a Sybil attack).</p>
+                            <p class="text-green-400 font-semibold mb-2" data-key="governance_card1_p4_solution">The Solution: Proof-of-Personhood</p>
+                            <p class="text-text-secondary" data-key="governance_card1_p5">By requiring a privacy-preserving verification (e.g., World ID), the DAO ensures that each vote comes from a unique human, making the quadratic voting system fair and robust.</p>
+                        </div>
                     </div>
                     <div class="card p-6">
-                        <h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card2_title">The Governance Process</h3>
-                        <div class="relative" id="governance-flow"></div>
+                        <div class="card-content">
+                            <h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card2_title">The Governance Process</h3>
+                            <div class="relative" id="governance-flow"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -499,10 +553,10 @@
                     <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="team_subtitle">A blend of serial entrepreneurs, tech visionaries, and business leaders committed to the mQsala vision.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed Dilawar" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj Mohammed" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div>
-                    <div class="card text-center p-6"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed Dilawar" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj Mohammed" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali" width="128" height="128" loading="lazy"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div></div>
                 </div>
             </div>
         </section>
@@ -567,7 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stack_infra: 'Infrastructure', stack_infra_desc: 'Robust, scalable, and automated infrastructure for high availability.',
             cicd_title: 'Automated GitOps CI/CD Pipeline', cicd_subtitle: 'Click each stage to learn how we ensure rapid, reliable, and consistent delivery of new features and fixes.',
             cicd_info_title: 'Select a Stage', cicd_info_default: 'Click a stage in the pipeline to understand its value in delivering robust software efficiently.',
-            tokenomics_full_title: 'Token Economy: Allocation & Staking', tokenomics_full_subtitle: 'A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment.',
+            tokenomics_full_title: 'Token Economy: Allocation & Staking', tokenomics_full_subtitle: 'A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment. Auto-burn starts at 0% and can be raised (max 20%) by DAO vote.',
             tokenomics_alloc_title: 'Allocation & Vesting Breakdown',
             sale_rounds_title: 'Sale Rounds – 40%', internal_alloc_title: 'Internal Allocation – 60%',
             round_th: 'Round', tokens_th: 'Tokens (M)', cliff_th: 'Cliff',
@@ -579,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
             governance_card1_p2_problem: 'The Problem:', governance_card1_p3: 'A whale could bypass this by splitting tokens across thousands of wallets (a Sybil attack).',
             governance_card1_p4_solution: 'The Solution: Proof-of-Personhood', governance_card1_p5: 'By requiring a privacy-preserving verification (e.g., World ID), the DAO ensures that each vote comes from a unique human, making the quadratic voting system fair and robust.',
             governance_card2_title: 'The Governance Process',
-            flow_step1_title: 'Proposal', flow_step1_desc: 'A user holding ≥10% of total supply submits a proposal.',
+            flow_step1_title: 'Proposal', flow_step1_desc: 'A user holding ≥10% of total supply submits a proposal. setBurnBP and upgrades are executed via Timelock after community vote.',
             flow_step2_title: 'Voting Period (7 Days)', flow_step2_desc: 'Community members cast their quadratic vote, verified by Proof-of-Personhood to ensure one person, one vote.',
             flow_step3_title: 'Timelock', flow_step3_desc: 'If passed, the proposal enters a mandatory delay period, allowing users to react to the outcome.',
             flow_step4_title: 'Execution', flow_step4_desc: 'After the timelock, the proposal\'s code is automatically executed.',
@@ -589,6 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
             team_member3_name: 'Masarath Durraj', team_member3_title: 'Co-Founder & CTO', team_member3_desc: 'Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.',
             team_member4_name: 'Liaqath Ali', team_member4_title: 'Co-Founder & COO', team_member4_desc: 'Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.',
             footer_text: '© 2025 mQsala. All rights reserved.',
+            more_info: 'More Information',
             'Q1 2023_period': 'Q1 2023', 'Q1 2023_task': 'Crystallizing the idea and studying the Saudi and UAE markets.',
             'Q2 2023_period': 'Q2 2023', 'Q2 2023_task': 'Regulatory research, TAM/SAM analysis, and assembling the founding team.',
             'Q3 2023_period': 'Q3 2023', 'Q3 2023_task': 'UI/UX design and planning the microservices architecture.',
@@ -596,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Q4 2024_period': 'Q4 2024', 'Q4 2024_task': 'Establishment of mQsala FZCO in Dubai DWTC.',
             'Q1 2025_period': 'Q1 2025', 'Q1 2025_task': 'Issuing contract portfolios, MISA sub-license in Riyadh, creating mQsala contracts.',
             'Q2 2025_period': 'Q2 2025', 'Q2 2025_task': 'Launch of ICO website, deploying contracts on Testnet, internal security review.',
-            'Phase 1_period': 'Phase 1', 'Phase 1_task': 'Activating payments, discounts, and loyalty rewards immediately after ICO.',
+            'Phase 1_period': 'Phase 1', 'Phase 1_task': 'Activating payments, discounts, and loyalty rewards immediately after ICO. Set official TGE timestamp on-chain (single-use).',
             'Phase 2_period': 'Phase 2', 'Phase 2_task': 'Launching Staking & Referral programs, automatic partner settlements.',
             'Phase 3_period': 'Phase 3', 'Phase 3_task': 'Live DAO platform, governance over burn & fee, bridging to Layer-2s.',
             'Phase 4_period': 'Phase 4', 'Phase 4_task': 'GCC expansion (Kuwait/Oman/Bahrain).',
@@ -626,7 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stack_infra: 'البنية التحتية', stack_infra_desc: 'بنية تحتية قوية وقابلة للتطوير ومؤتمتة لضمان التوافر العالي.',
             cicd_title: 'خط أنابيب CI/CD المؤتمت بنظام GitOps', cicd_subtitle: 'انقر على كل مرحلة لمعرفة كيف نضمن تسليم الميزات والإصلاحات الجديدة بسرعة وموثوقية.',
             cicd_info_title: 'اختر مرحلة', cicd_info_default: 'انقر على مرحلة في خط الأنابيب لفهم قيمتها في تقديم برامج قوية بكفاءة.',
-            tokenomics_full_title: 'اقتصاديات التوكن والتخزين', tokenomics_full_subtitle: 'نموذج شفاف ثابت العرض مصمم للنمو طويل الأمد، مقترنًا ببروتوكول تخزين مدفوع بالمنفعة لمكافأة توافق المجتمع.',
+            tokenomics_full_title: 'اقتصاديات التوكن والتخزين', tokenomics_full_subtitle: 'نموذج شفاف ثابت العرض مصمم للنمو طويل الأمد، مقترنًا ببروتوكول تخزين مدفوع بالمنفعة لمكافأة توافق المجتمع. يبدأ الحرق التلقائي من 0% ويمكن رفعه (بحد أقصى 20%) عبر تصويت المنظمة المستقلة.',
             tokenomics_alloc_title: 'تفاصيل التخصيص والتوزيع',
             sale_rounds_title: 'جولات البيع – 40%', internal_alloc_title: 'التخصيص الداخلي – 60%',
             round_th: 'الجولة', tokens_th: 'التوكن (مليون)', cliff_th: 'فترة الحجز',
@@ -638,7 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
             governance_card1_p2_problem: 'المشكلة:', governance_card1_p3: 'يمكن للحوت تجاوز ذلك عن طريق تقسيم التوكنات عبر آلاف المحافظ (هجوم سيبيل).',
             governance_card1_p4_solution: 'الحل: إثبات الشخصية', governance_card1_p5: 'من خلال طلب التحقق الذي يحافظ على الخصوصية (مثل World ID)، تضمن المنظمة أن كل صوت يأتي من إنسان فريد، مما يجعل نظام التصويت التربيعي عادلاً وقوياً.',
             governance_card2_title: 'عملية الحوكمة',
-            flow_step1_title: 'الاقتراح', flow_step1_desc: 'يقدم مستخدم يمتلك ≥10٪ من إجمالي المخزون اقتراحًا.',
+            flow_step1_title: 'الاقتراح', flow_step1_desc: 'يقدم مستخدم يمتلك ≥10٪ من إجمالي العرض اقتراحًا. يتم تنفيذ setBurnBP والترقيات عبر Timelock بعد تصويت المجتمع.',
             flow_step2_title: 'فترة التصويت (7 أيام)', flow_step2_desc: 'يدلي أعضاء المجتمع بأصواتهم التربيعية، مع التحقق من إثبات الشخصية لضمان شخص واحد، صوت واحد.',
             flow_step3_title: 'القفل الزمني', flow_step3_desc: 'إذا تم تمرير الاقتراح، فإنه يدخل في فترة تأخير إلزامية، مما يسمح للمستخدمين بالرد على النتيجة.',
             flow_step4_title: 'التنفيذ', flow_step4_desc: 'بعد القفل الزمني، يتم تنفيذ كود الاقتراح تلقائيًا.',
@@ -648,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
             team_member3_name: 'مسرة دراج', team_member3_title: 'الشريك المؤسس والمدير التقني', team_member3_desc: 'قائد تقني بارع يتمتع بخبرة تزيد عن 15 عامًا في تصميم حلول التجارة الإلكترونية والسحابة على مستوى الشركات لأشهر العلامات التجارية.',
             team_member4_name: 'لياكة علي', team_member4_title: 'الشريك المؤسس والمدير التنفيذي للعمليات', team_member4_desc: 'مدير تنفيذي للعمليات متمرس يتمتع بخبرة تزيد عن 25 عامًا، ويشرف على التميز التشغيلي والكفاءة اللوجستية والسلامة المالية لشركة mQsala.',
             footer_text: '© 2025 mQsala. جميع الحقوق محفوظة.',
+            more_info: 'مزيد من المعلومات',
             'Q1 2023_period': 'الربع الأول 2023', 'Q1 2023_task': 'بلورة الفكرة ودراسة السوق السعودي والإماراتي.',
             'Q2 2023_period': 'الربع الثاني 2023', 'Q2 2023_task': 'أبحاث تنظيمية، تحليل TAM/SAM، وتجميع الفريق المؤسِّس.',
             'Q3 2023_period': 'الربع الثالث 2023', 'Q3 2023_task': 'تصميم UI/UX، تخطيط بنية الخدمات المصغّرة.',
@@ -655,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Q4 2024_period': 'الربع الرابع 2024', 'Q4 2024_task': 'تأسيس mQsala FZCO في دبي DWTC.',
             'Q1 2025_period': 'الربع الأول 2025', 'Q1 2025_task': 'إصدار محافظ العقود، ترخيص MISA الفرعي بالرياض، إنشاء عقود mQsala.',
             'Q2 2025_period': 'الربع الثاني 2025', 'Q2 2025_task': 'إطلاق موقع ICO، نشر العقود في Testnet، مراجعة أمنية داخلية.',
-            'Phase 1_period': 'المرحلة الأولى', 'Phase 1_task': 'تفعيل المدفوعات، الخصومات، ومكافآت الولاء فور انتهاء ICO.',
+            'Phase 1_period': 'المرحلة الأولى', 'Phase 1_task': 'تفعيل المدفوعات، الخصومات، ومكافآت الولاء فور انتهاء ICO. تعيين الطابع الزمني الرسمي لـ TGE على السلسلة (استخدام مرة واحدة).',
             'Phase 2_period': 'المرحلة الثانية', 'Phase 2_task': 'إطلاق Staking & Referral، تسويات شركاء أوتوماتيكية.',
             'Phase 3_period': 'المرحلة الثالثة', 'Phase 3_task': 'منصة DAO حية، حوكمة burn & fee، جسر لطبقات ثانية.',
             'Phase 4_period': 'المرحلة الرابعة', 'Phase 4_task': 'التوسع خليجياً (الكويت/عُمان/البحرين).',
@@ -847,13 +903,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalsContainer = document.getElementById('modals-container');
     if(modalsContainer){
         modalsContainer.innerHTML = `
-        <div id="token-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">mQsalaToken Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Standard BEP-20 implementation (OpenZeppelin).</li><li>Hard-capped supply at 1 Billion tokens.</li><li>Role-Based Access Control (Admin, Minter, Burner).</li><li>Transfer restrictions for pre-license and jurisdictional compliance.</li><li>Automated 20% burn on loyalty reward minting.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Reward Burn</h3><pre class="language-solidity"><code>function mint(address to, uint256 amount) {
-    uint256 burnAmount = amount * 20 / 100;
-    uint256 netAmount = amount - burnAmount;
-    _mint(to, netAmount);
-    _burn(address(this), burnAmount);
-}</code></pre></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Built on audited OpenZeppelin contracts. Upgradeable via proxy pattern to allow for future enhancements and security patches approved by governance.</p></div></div></div></div>
-        <div id="ico-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">ICO & Vesting Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Manages multi-stage ICO rounds with configurable pricing and allocations.</li><li>Enforces KYC whitelisting for private and strategic rounds.</li><li>Automates vesting schedules with cliffs and linear daily release.</li><li>Handles vesting for both external investors and internal team/ecosystem allocations.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Linear Vesting Formula</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Vested = (Total - Initial) * (Time - Cliff) / (End - Cliff)</p></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Vesting schedules are immutable once created. All state-changing functions are access-controlled. Utilizes checked arithmetic to prevent overflows.</p></div></div></div></div>
+        <div id="token-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">mQsalaToken Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Standard BEP-20 implementation (OpenZeppelin).</li><li>Hard-capped supply at 1 Billion tokens.</li><li>Role-Based Access Control (Admin, Minter, Burner).</li><li>Up to 20% burn on loyalty reward minting (rate initially 0%).</li><li>Licence-gated P2P transfers &amp; whitelisting.</li></ul></div><div><h3 class="font-semibold text-lg">Contract Header: MQSLAToken.sol</h3><pre class="language-solidity"><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20PermitUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20VotesUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+
+contract mQsalaToken is
+    Initializable,
+    ERC20Upgradeable,
+    ERC20BurnableUpgradeable,
+    ERC20PermitUpgradeable,
+    ERC20VotesUpgradeable,
+    AccessControlUpgradeable,
+    UUPSUpgradeable
+{
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
+    // ...
+}</code></pre></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Built on audited OpenZeppelin contracts. Upgradeable via UUPS proxy pattern to allow for future enhancements and security patches approved by governance.</p></div></div></div></div>
+        <div id="ico-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">ICO & Vesting Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Manages multi-stage ICO rounds with configurable pricing and allocations.</li><li>Automates vesting schedules with cliffs and linear daily release.</li><li>Handles vesting for both external investors and internal team/ecosystem allocations.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Linear Vesting Formula</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Vested = (Total - Initial) * (Time - Cliff) / (End - Cliff)</p></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Vesting schedules are immutable once created. All state-changing functions are access-controlled. Utilizes checked arithmetic to prevent overflows.</p></div></div></div></div>
         <div id="staking-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">Staking Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Utility-only staking: rewards are in-app perks, not financial returns.</li><li>Multiple staking pools (Flexible, 30-day, 1-year, etc.).</li><li>Tiered APY structure: longer lock-up periods yield higher rewards (in the form of greater discounts/perks).</li><li>Early withdrawal penalties to discourage breaking locks.</li><li>Dynamic reward rates adjustable by governance based on platform performance.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Early Withdrawal Penalty</h3><pre class="language-solidity"><code>if (block.timestamp < unlockTime) {
     uint256 penalty = amount * penaltyRate / 10000;
     amountToReturn = amount - penalty;
