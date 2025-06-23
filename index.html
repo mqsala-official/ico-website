@@ -231,10 +231,13 @@
         .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); animation: fadeIn 0.4s; }
         .modal-content { background: var(--surface-primary); margin: 8% auto; padding: 2rem; border: 1px solid var(--border-primary); width: 90%; max-width: 700px; border-radius: 12px; animation: slideIn 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .close-btn { color: var(--text-secondary); float: right; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+        html[dir="rtl"] .close-btn { float: left; }
         .close-btn:hover, .close-btn:focus { color: white; }
         
         pre[class*="language-"] {
             background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--border-primary);
+            direction: ltr;
+            text-align: left;
         }
         
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -417,22 +420,22 @@
 
                 <!-- Smart Contracts -->
                 <div class="mb-20">
-                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300">Audited & Planned Smart Contract Suite</h3>
+                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="smart_contracts_title">Audited & Planned Smart Contract Suite</h3>
                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="token-modal">
                             <div class="card-content">
                                 <div class="badge under-audit">Under Audit</div>
-                                <h3 class="text-xl font-semibold text-white mb-2">mQsalaToken</h3>
-                                <p class="text-sm text-gray-400 mb-4 flex-grow">Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.</p>
-                                <img src="assets/logo/favicon-32.png" alt="mQsala Token Logo" class="h-16 w-16 mx-auto mt-4">
+                                <h3 class="text-xl font-semibold text-white mb-2" data-key="token_card_title">mQsalaToken</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow" data-key="token_card_desc">Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.</p>
+                                <img src="assets/logo/favicon-32%20no%20background.png" alt="mQsala Token Logo" class="h-16 w-16 mx-auto mt-4">
                                 <div class="more-info-btn" data-key="more_info">More Information</div>
                             </div>
                         </div>
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="ico-modal">
                             <div class="card-content">
                                 <div class="badge planned">Planned</div>
-                                <h3 class="text-xl font-semibold text-white mb-2">ICO & Vesting</h3>
-                                <p class="text-sm text-gray-400 mb-4 flex-grow">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-key="ico_card_title">ICO & Vesting</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow" data-key="ico_card_desc">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p>
                                 <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                                 <div class="more-info-btn" data-key="more_info">More Information</div>
                             </div>
@@ -440,8 +443,8 @@
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="staking-modal">
                             <div class="card-content">
                                  <div class="badge planned">Planned</div>
-                                <h3 class="text-xl font-semibold text-white mb-2">Staking</h3>
-                                <p class="text-sm text-gray-400 mb-4 flex-grow">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-key="staking_card_title">Staking</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow" data-key="staking_card_desc">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p>
                                 <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                                 <div class="more-info-btn" data-key="more_info">More Information</div>
                             </div>
@@ -449,8 +452,8 @@
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="dao-modal">
                             <div class="card-content">
                                  <div class="badge planned">Planned</div>
-                                <h3 class="text-xl font-semibold text-white mb-2">Governance (DAO)</h3>
-                                <p class="text-sm text-gray-400 mb-4 flex-grow">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p>
+                                <h3 class="text-xl font-semibold text-white mb-2" data-key="dao_card_title">Governance (DAO)</h3>
+                                <p class="text-sm text-gray-400 mb-4 flex-grow" data-key="dao_card_desc">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p>
                                 <svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                 <div class="more-info-btn" data-key="more_info">More Information</div>
                             </div>
@@ -619,6 +622,15 @@ document.addEventListener('DOMContentLoaded', () => {
             stack_title: 'Enterprise-Grade Technology Stack', stack_frontend: 'Frontend', stack_frontend_desc: 'Modern, responsive, and cross-platform user interfaces.',
             stack_backend: 'Backend', stack_backend_desc: 'A scalable microservices architecture for our core logic.',
             stack_infra: 'Infrastructure', stack_infra_desc: 'Robust, scalable, and automated infrastructure for high availability.',
+            smart_contracts_title: 'Audited & Planned Smart Contract Suite',
+            token_card_title: 'mQsalaToken',
+            token_card_desc: 'Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.',
+            ico_card_title: 'ICO & Vesting',
+            ico_card_desc: 'Manages multi-stage token sales and immutable, time-locked vesting schedules.',
+            staking_card_title: 'Staking',
+            staking_card_desc: 'Enables utility-only staking for in-app benefits with dynamic, tiered rewards.',
+            dao_card_title: 'Governance (DAO)',
+            dao_card_desc: 'Facilitates decentralized voting on protocol parameters via a timelocked DAO.',
             cicd_title: 'Automated GitOps CI/CD Pipeline', cicd_subtitle: 'Click each stage to learn how we ensure rapid, reliable, and consistent delivery of new features and fixes.',
             cicd_info_title: 'Select a Stage', cicd_info_default: 'Click a stage in the pipeline to understand its value in delivering robust software efficiently.',
             tokenomics_full_title: 'Token Economy: Allocation & Staking', tokenomics_full_subtitle: 'A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment. Auto-burn starts at 0% and can be raised (max 20%) by DAO vote.',
@@ -644,6 +656,37 @@ document.addEventListener('DOMContentLoaded', () => {
             team_member4_name: 'Liaqath Ali', team_member4_title: 'Co-Founder & COO', team_member4_desc: 'Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.',
             footer_text: '© 2025 mQsala. All rights reserved.',
             more_info: 'More Information',
+            modal_token_title: 'mQsalaToken Contract',
+            modal_key_features: 'Key Features',
+            modal_token_feature1: 'Standard BEP-20 implementation (OpenZeppelin).',
+            modal_token_feature2: 'Hard-capped supply at 1 Billion tokens.',
+            modal_token_feature3: 'Role-Based Access Control (Admin, Minter, Burner).',
+            modal_token_feature4: 'Up to 20% burn on loyalty reward minting (rate initially 0%).',
+            modal_token_feature5: 'Licence-gated P2P transfers & whitelisting.',
+            modal_contract_header: 'Contract Header: MQSLAToken.sol',
+            modal_security_focus: 'Security Focus',
+            modal_token_security: 'Built on audited OpenZeppelin contracts. Upgradeable via UUPS proxy pattern to allow for future enhancements and security patches approved by governance.',
+            modal_ico_title: 'ICO & Vesting Contract',
+            modal_ico_feature1: 'Manages multi-stage ICO rounds with configurable pricing and allocations.',
+            modal_ico_feature2: 'Automates vesting schedules with cliffs and linear daily release.',
+            modal_ico_feature3: 'Handles vesting for both external investors and internal team/ecosystem allocations.',
+            modal_logic_example: 'Core Logic Example: Linear Vesting Formula',
+            modal_ico_security: 'Vesting schedules are immutable once created. All state-changing functions are access-controlled. Utilizes checked arithmetic to prevent overflows.',
+            modal_staking_title: 'Staking Contract',
+            modal_staking_feature1: 'Utility-only staking: rewards are in-app perks, not financial returns.',
+            modal_staking_feature2: 'Multiple staking pools (Flexible, 30-day, 1-year, etc.).',
+            modal_staking_feature3: 'Tiered APY structure: longer lock-up periods yield higher rewards (in the form of greater discounts/perks).',
+            modal_staking_feature4: 'Early withdrawal penalties to discourage breaking locks.',
+            modal_staking_feature5: 'Dynamic reward rates adjustable by governance based on platform performance.',
+            modal_staking_logic_example: 'Core Logic Example: Early Withdrawal Penalty',
+            modal_staking_security: 'Uses Checks-Effects-Interactions pattern to prevent re-entrancy. Pausable by an admin/DAO in emergencies. Thoroughly audited to protect user funds.',
+            modal_dao_title: 'Governance (DAO) Contract',
+            modal_dao_feature1: 'Quadratic Voting to reduce whale influence and promote broader consensus.',
+            modal_dao_feature2: 'High proposal threshold (10% of supply) to prevent spam.',
+            modal_dao_feature3: 'Timelock for execution, providing a delay for community review.',
+            modal_dao_feature4: 'Manages DAO Treasury funds and protocol parameters like fee ratios and burn rates.',
+            modal_dao_logic_example: 'Core Logic Example: Quadratic Voting',
+            modal_dao_security: 'Based on OpenZeppelin Governor framework. All proposals are transparent and recorded on-chain. Timelock prevents immediate, un-reviewed changes to the protocol.',
             'Q1 2023_period': 'Q1 2023', 'Q1 2023_task': 'Crystallizing the idea and studying the Saudi and UAE markets.',
             'Q2 2023_period': 'Q2 2023', 'Q2 2023_task': 'Regulatory research, TAM/SAM analysis, and assembling the founding team.',
             'Q3 2023_period': 'Q3 2023', 'Q3 2023_task': 'UI/UX design and planning the microservices architecture.',
@@ -679,6 +722,15 @@ document.addEventListener('DOMContentLoaded', () => {
             stack_title: 'حزمة تقنية على مستوى الشركات', stack_frontend: 'الواجهة الأمامية', stack_frontend_desc: 'واجهات مستخدم حديثة ومتجاوبة ومتعددة المنصات.',
             stack_backend: 'الواجهة الخلفية', stack_backend_desc: 'بنية خدمات مصغرة قابلة للتطوير لمنطق عملنا الأساسي.',
             stack_infra: 'البنية التحتية', stack_infra_desc: 'بنية تحتية قوية وقابلة للتطوير ومؤتمتة لضمان التوافر العالي.',
+            smart_contracts_title: 'مجموعة العقود الذكية المخطط لها والمدققة',
+            token_card_title: 'توكن mQsala',
+            token_card_desc: 'توكن BEP-20 قابل للترقية (UUPS) • سقف أعلى 1 مليار • حرق تلقائي ديناميكي (0-20%) • تحويلات مقيدة بالترخيص • ERC20Votes/Permit.',
+            ico_card_title: 'الطرح الأولي للعملة (ICO) والتوزيع',
+            ico_card_desc: 'إدارة مبيعات التوكن متعددة المراحل وجداول التوزيع غير القابلة للتغيير والمقيدة زمنيًا.',
+            staking_card_title: 'التخزين (Staking)',
+            staking_card_desc: 'تمكين التخزين للمنفعة فقط للحصول على مزايا داخل التطبيق مع مكافآت متدرجة ديناميكية.',
+            dao_card_title: 'الحوكمة (DAO)',
+            dao_card_desc: 'تسهيل التصويت اللامركزي على معلمات البروتوكول عبر منظمة مستقلة ذات قفل زمني.',
             cicd_title: 'خط أنابيب CI/CD المؤتمت بنظام GitOps', cicd_subtitle: 'انقر على كل مرحلة لمعرفة كيف نضمن تسليم الميزات والإصلاحات الجديدة بسرعة وموثوقية.',
             cicd_info_title: 'اختر مرحلة', cicd_info_default: 'انقر على مرحلة في خط الأنابيب لفهم قيمتها في تقديم برامج قوية بكفاءة.',
             tokenomics_full_title: 'اقتصاديات التوكن والتخزين', tokenomics_full_subtitle: 'نموذج شفاف ثابت العرض مصمم للنمو طويل الأمد، مقترنًا ببروتوكول تخزين مدفوع بالمنفعة لمكافأة توافق المجتمع. يبدأ الحرق التلقائي من 0% ويمكن رفعه (بحد أقصى 20%) عبر تصويت المنظمة المستقلة.',
@@ -704,6 +756,37 @@ document.addEventListener('DOMContentLoaded', () => {
             team_member4_name: 'لياكة علي', team_member4_title: 'الشريك المؤسس والمدير التنفيذي للعمليات', team_member4_desc: 'مدير تنفيذي للعمليات متمرس يتمتع بخبرة تزيد عن 25 عامًا، ويشرف على التميز التشغيلي والكفاءة اللوجستية والسلامة المالية لشركة mQsala.',
             footer_text: '© 2025 mQsala. جميع الحقوق محفوظة.',
             more_info: 'مزيد من المعلومات',
+            modal_token_title: 'عقد توكن mQsala',
+            modal_key_features: 'الميزات الرئيسية',
+            modal_token_feature1: 'تطبيق قياسي لـ BEP-20 (OpenZeppelin).',
+            modal_token_feature2: 'إجمالي المعروض محدود بـ 1 مليار توكن.',
+            modal_token_feature3: 'تحكم في الوصول قائم على الأدوار (مسؤول، مُصدر، حارق).',
+            modal_token_feature4: 'حرق يصل إلى 20% عند إصدار مكافآت الولاء (المعدل مبدئيًا 0%).',
+            modal_token_feature5: 'تحويلات من نظير إلى نظير مقيدة بالترخيص والقائمة البيضاء.',
+            modal_contract_header: 'رأس العقد: MQSLAToken.sol',
+            modal_security_focus: 'التركيز على الأمان',
+            modal_token_security: 'مبني على عقود OpenZeppelin المدققة. قابل للترقية عبر نمط بروكسي UUPS للسماح بالتحسينات المستقبلية وتصحيحات الأمان المعتمدة من قبل الحوكمة.',
+            modal_ico_title: 'عقد الطرح الأولي للعملة (ICO) والتوزيع',
+            modal_ico_feature1: 'يدير جولات الطرح الأولي متعددة المراحل بأسعار وتخصيصات قابلة للتكوين.',
+            modal_ico_feature2: 'أتمتة جداول التوزيع مع فترات حجز وإصدار يومي خطي.',
+            modal_ico_feature3: 'يتعامل مع توزيعات المستثمرين الخارجيين وتخصيصات الفريق والنظام البيئي الداخلية.',
+            modal_logic_example: 'مثال على المنطق الأساسي: صيغة التوزيع الخطي',
+            modal_ico_security: 'جداول التوزيع غير قابلة للتغيير بمجرد إنشائها. جميع وظائف تغيير الحالة يتم التحكم في الوصول إليها. يستخدم العمليات الحسابية المحددة لمنع الأخطاء.',
+            modal_staking_title: 'عقد التخزين (Staking)',
+            modal_staking_feature1: 'تخزين للمنفعة فقط: المكافآت هي مزايا داخل التطبيق، وليست عوائد مالية.',
+            modal_staking_feature2: 'مجمعات تخزين متعددة (مرن، 30 يومًا، سنة واحدة، إلخ).',
+            modal_staking_feature3: 'هيكل مكافآت متدرج: فترات الحجز الأطول تحقق مكافآت أعلى (في شكل خصومات/مزايا أكبر).',
+            modal_staking_feature4: 'عقوبات على السحب المبكر لتثبيط كسر الأقفال.',
+            modal_staking_feature5: 'معدلات مكافآت ديناميكية قابلة للتعديل من قبل الحوكمة بناءً على أداء المنصة.',
+            modal_staking_logic_example: 'مثال على المنطق الأساسي: عقوبة السحب المبكر',
+            modal_staking_security: 'يستخدم نمط "فحص-تأثير-تفاعل" لمنع هجمات إعادة الدخول. قابل للإيقاف المؤقت من قبل المسؤول/المنظمة المستقلة في حالات الطوارئ. مدقق بالكامل لحماية أموال المستخدمين.',
+            modal_dao_title: 'عقد الحوكمة (DAO)',
+            modal_dao_feature1: 'تصويت تربيعي لتقليل تأثير الحيتان وتعزيز الإجماع الأوسع.',
+            modal_dao_feature2: 'عتبة اقتراح عالية (10% من المعروض) لمنع الرسائل غير المرغوب فيها.',
+            modal_dao_feature3: 'قفل زمني للتنفيذ، مما يوفر تأخيرًا لمراجعة المجتمع.',
+            modal_dao_feature4: 'إدارة أموال خزانة المنظمة ومعلمات البروتوكول مثل نسب الرسوم ومعدلات الحرق.',
+            modal_dao_logic_example: 'مثال على المنطق الأساسي: التصويت التربيعي',
+            modal_dao_security: 'مبني على إطار عمل OpenZeppelin Governor. جميع المقترحات شفافة ومسجلة على السلسلة. يمنع القفل الزمني التغييرات الفورية وغير المراجعة على البروتوكول.',
             'Q1 2023_period': 'الربع الأول 2023', 'Q1 2023_task': 'بلورة الفكرة ودراسة السوق السعودي والإماراتي.',
             'Q2 2023_period': 'الربع الثاني 2023', 'Q2 2023_task': 'أبحاث تنظيمية، تحليل TAM/SAM، وتجميع الفريق المؤسِّس.',
             'Q3 2023_period': 'الربع الثالث 2023', 'Q3 2023_task': 'تصميم UI/UX، تخطيط بنية الخدمات المصغّرة.',
@@ -800,6 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGovernanceFlow();
         renderSaleRoundsTable();
         renderInternalAllocationTable();
+        buildModals(); // Rebuild modals on language change
         if (window.MathJax) {
             window.MathJax.typeset();
         }
@@ -899,11 +983,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Modal HTML and Logic
-    const modalsContainer = document.getElementById('modals-container');
-    if(modalsContainer){
+    function buildModals() {
+        const modalsContainer = document.getElementById('modals-container');
+        if(!modalsContainer) return;
+        
+        const lang = translations[currentLang];
+
         modalsContainer.innerHTML = `
-        <div id="token-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">mQsalaToken Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Standard BEP-20 implementation (OpenZeppelin).</li><li>Hard-capped supply at 1 Billion tokens.</li><li>Role-Based Access Control (Admin, Minter, Burner).</li><li>Up to 20% burn on loyalty reward minting (rate initially 0%).</li><li>Licence-gated P2P transfers &amp; whitelisting.</li></ul></div><div><h3 class="font-semibold text-lg">Contract Header: MQSLAToken.sol</h3><pre class="language-solidity"><code>// SPDX-License-Identifier: MIT
+        <div id="token-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300" data-key="modal_token_title">${lang.modal_token_title}</h2><div class="space-y-4 text-text-primary"><div ><h3 class="font-semibold text-lg" data-key="modal_key_features">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_token_feature1}</li><li>${lang.modal_token_feature2}</li><li>${lang.modal_token_feature3}</li><li>${lang.modal_token_feature4}</li><li>${lang.modal_token_feature5}</li></ul></div><div><h3 class="font-semibold text-lg" data-key="modal_contract_header">${lang.modal_contract_header}</h3><pre class="language-solidity" dir="ltr"><code>// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
@@ -926,19 +1013,22 @@ contract mQsalaToken is
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     // ...
-}</code></pre></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Built on audited OpenZeppelin contracts. Upgradeable via UUPS proxy pattern to allow for future enhancements and security patches approved by governance.</p></div></div></div></div>
-        <div id="ico-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">ICO & Vesting Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Manages multi-stage ICO rounds with configurable pricing and allocations.</li><li>Automates vesting schedules with cliffs and linear daily release.</li><li>Handles vesting for both external investors and internal team/ecosystem allocations.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Linear Vesting Formula</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Vested = (Total - Initial) * (Time - Cliff) / (End - Cliff)</p></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Vesting schedules are immutable once created. All state-changing functions are access-controlled. Utilizes checked arithmetic to prevent overflows.</p></div></div></div></div>
-        <div id="staking-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">Staking Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Utility-only staking: rewards are in-app perks, not financial returns.</li><li>Multiple staking pools (Flexible, 30-day, 1-year, etc.).</li><li>Tiered APY structure: longer lock-up periods yield higher rewards (in the form of greater discounts/perks).</li><li>Early withdrawal penalties to discourage breaking locks.</li><li>Dynamic reward rates adjustable by governance based on platform performance.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Early Withdrawal Penalty</h3><pre class="language-solidity"><code>if (block.timestamp < unlockTime) {
+}</code></pre></div><div><h3 class="font-semibold text-lg" data-key="modal_security_focus">${lang.modal_security_focus}</h3><p>${lang.modal_token_security}</p></div></div></div></div>
+        <div id="ico-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300" data-key="modal_ico_title">${lang.modal_ico_title}</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg" data-key="modal_key_features">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_ico_feature1}</li><li>${lang.modal_ico_feature2}</li><li>${lang.modal_ico_feature3}</li></ul></div><div><h3 class="font-semibold text-lg" data-key="modal_logic_example">${lang.modal_logic_example}</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Vested = (Total - Initial) * (Time - Cliff) / (End - Cliff)</p></div><div><h3 class="font-semibold text-lg" data-key="modal_security_focus">${lang.modal_security_focus}</h3><p>${lang.modal_ico_security}</p></div></div></div></div>
+        <div id="staking-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300" data-key="modal_staking_title">${lang.modal_staking_title}</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg" data-key="modal_key_features">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_staking_feature1}</li><li>${lang.modal_staking_feature2}</li><li>${lang.modal_staking_feature3}</li><li>${lang.modal_staking_feature4}</li><li>${lang.modal_staking_feature5}</li></ul></div><div><h3 class="font-semibold text-lg" data-key="modal_staking_logic_example">${lang.modal_staking_logic_example}</h3><pre class="language-solidity" dir="ltr"><code>if (block.timestamp < unlockTime) {
     uint256 penalty = amount * penaltyRate / 10000;
     amountToReturn = amount - penalty;
     // send penalty to treasury/burn address
-}</code></pre></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Uses Checks-Effects-Interactions pattern to prevent re-entrancy. Pausable by an admin/DAO in emergencies. Thoroughly audited to protect user funds.</p></div></div></div></div>
-        <div id="dao-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">Governance (DAO) Contract</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg">Key Features</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>Quadratic Voting to reduce whale influence and promote broader consensus.</li><li>High proposal threshold (10% of supply) to prevent spam.</li><li>Timelock for execution, providing a delay for community review.</li><li>Manages DAO Treasury funds and protocol parameters like fee ratios and burn rates.</li></ul></div><div><h3 class="font-semibold text-lg">Core Logic Example: Quadratic Voting</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Voting Power = &radic;<span style="text-decoration: overline;">Token Balance</span></p></div><div><h3 class="font-semibold text-lg">Security Focus</h3><p>Based on OpenZeppelin Governor framework. All proposals are transparent and recorded on-chain. Timelock prevents immediate, un-reviewed changes to the protocol.</p></div></div></div></div>
+}</code></pre></div><div><h3 class="font-semibold text-lg" data-key="modal_security_focus">${lang.modal_security_focus}</h3><p>${lang.modal_staking_security}</p></div></div></div></div>
+        <div id="dao-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300" data-key="modal_dao_title">${lang.modal_dao_title}</h2><div class="space-y-4 text-text-primary"><div><h3 class="font-semibold text-lg" data-key="modal_key_features">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_dao_feature1}</li><li>${lang.modal_dao_feature2}</li><li>${lang.modal_dao_feature3}</li><li>${lang.modal_dao_feature4}</li></ul></div><div><h3 class="font-semibold text-lg" data-key="modal_dao_logic_example">${lang.modal_dao_logic_example}</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Voting Power = &radic;<span style="text-decoration: overline;">Token Balance</span></p></div><div><h3 class="font-semibold text-lg" data-key="modal_security_focus">${lang.modal_security_focus}</h3><p>${lang.modal_dao_security}</p></div></div></div></div>
         `;
+
+        // Re-attach event listeners after rebuilding modals
         document.querySelectorAll('[data-modal-target]').forEach(card => {
             card.addEventListener('click', () => {
                 const modalId = card.dataset.modalTarget;
-                document.getElementById(modalId).style.display = 'block';
+                const modal = document.getElementById(modalId)
+                if(modal) modal.style.display = 'block';
                 if(window.Prism) Prism.highlightAll();
             });
         });
