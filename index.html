@@ -208,7 +208,7 @@
                 <h2 class="text-center text-text-secondary font-semibold mb-6 tracking-widest uppercase" data-key="partners_title">Trusted &amp; Secured By</h2>
                 <div class="flex flex-col sm:flex-row sm:items-center sm:gap-8 justify-center gap-4 opacity-90">
                     <div class="inline-flex items-center justify-center p-0">
-                        <img src="https://placehold.co/64x64/0a0f14/ffffff?text=Assure" alt="Assure DeFi Logo" class="w-16 h-16 object-contain" title="Assure DeFi" loading="lazy">
+                        <img src="src/Images/Assure DeFi/Assure DeFi.png" alt="Assure DeFi Logo" class="w-16 h-16 object-contain" title="Assure DeFi" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/64x64/0a0f14/ffffff?text=Assure';">
                     </div>
                     <div class="text-center">
                         <p class="font-bold text-lg text-text-primary">Assure DeFi</p>
@@ -307,19 +307,19 @@
 
                 <!-- Key Financial Metrics -->
                 <section>
-                    <h3 class="section-title mb-2 text-center">Key Financial Metrics</h3>
-                    <p class="text-center text-text-secondary mb-8">Projections based on the planned token sale structure.</p>
+                    <h3 class="section-title mb-2 text-center" data-key="financial_metrics_title">Key Financial Metrics</h3>
+                    <p class="text-center text-text-secondary mb-8" data-key="financial_metrics_subtitle">Projections based on the planned token sale structure.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary">Total Projected Raise</p><p class="text-3xl font-bold mt-2">$293.2M</p></div>
-                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary">Initial Circulating Supply</p><p class="text-3xl font-bold mt-2">23.75M <span class="text-lg text-text-secondary">MQSLA</span></p></div>
-                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary">Initial Market Cap (IDO Price)</p><p class="text-3xl font-bold mt-2">$24.94M</p></div>
-                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary">Fully Diluted Valuation (IDO Price)</p><p class="text-3xl font-bold mt-2">$1.05B</p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_raise">Total Projected Raise</p><p class="text-3xl font-bold mt-2">$293.2M</p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_supply">Initial Circulating Supply</p><p class="text-3xl font-bold mt-2">23.75M <span class="text-lg text-text-secondary">MQSLA</span></p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_market_cap">Initial Market Cap (IDO Price)</p><p class="text-3xl font-bold mt-2">$24.94M</p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_fdv">Fully Diluted Valuation (IDO Price)</p><p class="text-3xl font-bold mt-2">$1.05B</p></div>
                     </div>
                 </section>
                 
                 <!-- Token Allocation -->
                 <section>
-                    <h3 class="section-title mb-8 text-center">Token Allocation Summary</h3>
+                    <h3 class="section-title mb-8 text-center" data-key="allocation_summary_title">Token Allocation Summary</h3>
                     <div class="glass-card rounded-2xl p-6 md:p-8">
                         <canvas id="allocationPieChart"></canvas>
                     </div>
@@ -327,10 +327,10 @@
 
                  <!-- Sale Round Allocations -->
                 <section>
-                    <h3 class="section-title mb-8 text-center">Sale Round Allocations (40%)</h3>
+                    <h3 class="section-title mb-8 text-center" data-key="sale_rounds_title">Sale Round Allocations (40%)</h3>
                     <div class="glass-card rounded-2xl p-2 md:p-4 table-container">
                         <table>
-                            <thead><tr><th>Round / Segment</th><th>Tokens (M)</th><th>% Supply</th><th>Price (USD)</th><th>Raise (USD)</th><th>Cliff</th><th>Vesting Details</th><th>Sale Window</th></tr></thead>
+                            <thead><tr><th data-key="table_header_round">Round / Segment</th><th data-key="table_header_tokens">Tokens (M)</th><th data-key="table_header_supply">% Supply</th><th data-key="table_header_price">Price (USD)</th><th data-key="table_header_raise">Raise (USD)</th><th data-key="table_header_cliff">Cliff</th><th data-key="table_header_vesting">Vesting Details</th><th data-key="table_header_window">Sale Window</th></tr></thead>
                             <tbody>
                                 <tr><td>Angel</td><td>15</td><td>1.5%</td><td>$0.10</td><td>$1.5M</td><td>6m</td><td>24m daily vesting</td><td>10 d</td></tr>
                                 <tr><td>Private A</td><td>65</td><td>6.5%</td><td>$0.40</td><td>$26.0M</td><td>12m</td><td>30m daily vesting</td><td>TBD</td></tr>
@@ -345,10 +345,10 @@
 
                 <!-- Internal Allocations -->
                 <section>
-                    <h3 class="section-title mb-8 text-center">Internal Allocations (60%)</h3>
+                    <h3 class="section-title mb-8 text-center" data-key="internal_alloc_title">Internal Allocations (60%)</h3>
                      <div class="glass-card rounded-2xl p-2 md:p-4 table-container">
                         <table>
-                            <thead><tr><th>Bucket</th><th>Tokens (M)</th><th>% Supply</th><th>Cliff</th><th>Vesting</th><th>Purpose</th></tr></thead>
+                            <thead><tr><th data-key="table_header_bucket">Bucket</th><th data-key="table_header_tokens_2">Tokens (M)</th><th data-key="table_header_supply_2">% Supply</th><th data-key="table_header_cliff_2">Cliff</th><th data-key="table_header_vesting_2">Vesting</th><th data-key="table_header_purpose">Purpose</th></tr></thead>
                             <tbody>
                                 <tr><td>Core Team & Founders</td><td>130</td><td>13.0%</td><td>24m</td><td>48m linear</td><td>Long-term alignment</td></tr>
                                 <tr><td>Advisors & Contributors</td><td>30</td><td>3.0%</td><td>12m</td><td>24m linear</td><td>Specialist talent</td></tr>
@@ -366,21 +366,18 @@
                 
                 <!-- DETAILED EMISSION SCHEDULES -->
                 <section>
-                    <h3 class="section-title mb-8 text-center">Detailed Emission & Vesting Schedules</h3>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="glass-card rounded-2xl p-4 md:p-6"><h3 class="font-bold text-xl mb-4 text-center">Cumulative Monthly Vested Tokens (Quantity)</h3><div class="h-96"><canvas id="cumulativeEmissionsQtyChart"></canvas></div></div>
-                         <div class="glass-card rounded-2xl p-4 md:p-6"><h3 class="font-bold text-xl mb-4 text-center">Monthly Vested Tokens (Notional USD Value)</h3><div class="h-96"><canvas id="monthlyEmissionsUsdChart"></canvas></div><p class="disclaimer">Notional value is calculated using the IDO price of $1.05. This is for illustrative purposes only.</p></div>
+                    <h3 class="section-title mb-8 text-center" data-key="emission_schedule_title">Detailed Emission & Vesting Schedules</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <div class="glass-card rounded-2xl p-4 md:p-6"><h3 class="font-bold text-xl mb-4 text-center" data-key="cumulative_vested_title">Cumulative Monthly Vested Tokens (Quantity)</h3><div class="h-96"><canvas id="cumulativeEmissionsQtyChart"></canvas></div></div>
+                        <div class="card p-6 h-full">
+                            <div class="card-content">
+                                <h3 class="font-bold text-2xl mb-4 text-center text-white" data-key="staking_title">Staking Protocol</h3>
+                                <p class="mt-2 text-text-secondary text-center mb-6" data-key="staking_subtitle">Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.</p>
+                                <div class="h-96"><canvas id="stakingChart"></canvas></div>
+                            </div>
+                        </div>
                     </div>
                 </section>
-                
-                 <!-- Staking Protocol -->
-                 <div class="card p-6">
-                    <div class="card-content">
-                        <h3 class="font-bold text-2xl mb-4 text-center text-white" data-key="staking_title">Staking Protocol</h3>
-                        <p class="mt-2 text-text-secondary text-center mb-6" data-key="staking_subtitle">Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.</p>
-                        <div><canvas id="stakingChart"></canvas></div>
-                    </div>
-                </div>
 
             </div>
         </section>
@@ -550,6 +547,31 @@ document.addEventListener('DOMContentLoaded', () => {
             'Phase 3_period': 'Phase 3', 'Phase 3_task': 'Live DAO platform, governance over burn & fee, bridging to Layer-2s.',
             'Phase 4_period': 'Phase 4', 'Phase 4_task': 'GCC expansion (Kuwait/Oman/Bahrain).',
             'Phase 5_period': 'Phase 5', 'Phase 5_task': 'Entering broader Middle East markets, then Asia and Europe.',
+            financial_metrics_title: 'Key Financial Metrics',
+            financial_metrics_subtitle: 'Projections based on the planned token sale structure.',
+            metrics_raise: 'Total Projected Raise',
+            metrics_supply: 'Initial Circulating Supply',
+            metrics_market_cap: 'Initial Market Cap (IDO Price)',
+            metrics_fdv: 'Fully Diluted Valuation (IDO Price)',
+            allocation_summary_title: 'Token Allocation Summary',
+            sale_rounds_title: 'Sale Round Allocations (40%)',
+            table_header_round: 'Round / Segment',
+            table_header_tokens: 'Tokens (M)',
+            table_header_supply: '% Supply',
+            table_header_price: 'Price (USD)',
+            table_header_raise: 'Raise (USD)',
+            table_header_cliff: 'Cliff',
+            table_header_vesting: 'Vesting Details',
+            table_header_window: 'Sale Window',
+            internal_alloc_title: 'Internal Allocations (60%)',
+            table_header_bucket: 'Bucket',
+            table_header_tokens_2: 'Tokens (M)',
+            table_header_supply_2: '% Supply',
+            table_header_cliff_2: 'Cliff',
+            table_header_vesting_2: 'Vesting',
+            table_header_purpose: 'Purpose',
+            emission_schedule_title: 'Detailed Emission & Vesting Schedules',
+            cumulative_vested_title: 'Cumulative Monthly Vested Tokens (Quantity)',
         },
         ar: {
             nav_invest: 'لماذا الاستثمار؟', nav_roadmap: 'خارطة الطريق', nav_tech: 'التقنية', nav_tokenomics: 'اقتصاديات التوكن', nav_team: 'الفريق',
@@ -646,6 +668,31 @@ document.addEventListener('DOMContentLoaded', () => {
             'Phase 3_period': 'المرحلة الثالثة', 'Phase 3_task': 'منصة DAO حية، حوكمة burn & fee، جسر لطبقات ثانية.',
             'Phase 4_period': 'المرحلة الرابعة', 'Phase 4_task': 'التوسع خليجياً (الكويت/عُمان/البحرين).',
             'Phase 5_period': 'المرحلة الخامسة', 'Phase 5_task': 'دخول أسواق الشرق الأوسط الواسعة ثم آسيا وأوروبا.',
+            financial_metrics_title: 'المؤشرات المالية الرئيسية',
+            financial_metrics_subtitle: 'التوقعات بناءً على هيكل بيع التوكن المخطط له.',
+            metrics_raise: 'إجمالي التمويل المتوقع',
+            metrics_supply: 'العرض الأولي المتداول',
+            metrics_market_cap: 'القيمة السوقية الأولية (بسعر IDO)',
+            metrics_fdv: 'التقييم المخفف بالكامل (بسعر IDO)',
+            allocation_summary_title: 'ملخص تخصيص التوكن',
+            sale_rounds_title: 'تخصيصات جولات البيع (40%)',
+            table_header_round: 'الجولة / الشريحة',
+            table_header_tokens: 'التوكن (مليون)',
+            table_header_supply: 'نسبة العرض',
+            table_header_price: 'السعر (USD)',
+            table_header_raise: 'التمويل (USD)',
+            table_header_cliff: 'فترة الحجز',
+            table_header_vesting: 'تفاصيل التوزيع',
+            table_header_window: 'نافذة البيع',
+            internal_alloc_title: 'التخصيصات الداخلية (60%)',
+            table_header_bucket: 'الشريحة',
+            table_header_tokens_2: 'التوكن (مليون)',
+            table_header_supply_2: 'نسبة العرض',
+            table_header_cliff_2: 'فترة الحجز',
+            table_header_vesting_2: 'التوزيع',
+            table_header_purpose: 'الغرض',
+            emission_schedule_title: 'جداول الإصدار والتوزيع التفصيلية',
+            cumulative_vested_title: 'التوكنات الموزعة شهريًا (تراكمي)',
         }
     };
     
@@ -835,7 +882,6 @@ contract mQsalaToken is Initializable, ERC20Upgradeable, ... { ... }</code></pre
     
     createChart('allocationPieChart', { type: 'doughnut', data: allocationData, options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 20 } } } } });
     createChart('cumulativeEmissionsQtyChart', { type: 'line', data: { labels: Array.from({ length: 37 }, (_, i) => `M${i}`), datasets: [{ label: 'Cumulative Vested Tokens', data: cumulativeEmissionDataQty.slice(0, 37), borderColor: '#c026d3', backgroundColor: 'rgba(192, 38, 211, 0.2)', fill: true, tension: 0.4, }] }, options: { scales: { y: { ticks: { callback: value => `${value / 1000000}M` } } } } });
-    createChart('monthlyEmissionsUsdChart', { type: 'bar', data: { labels: Array.from({ length: 37 }, (_, i) => `M${i}`), datasets: [{ label: 'Notional Value (USD)', data: monthlyEmissionDataQty.map(v => v * IDO_PRICE).slice(0, 37), borderColor: '#4f46e5', backgroundColor: '#4f46e5', }] }, options: { plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: value => `$${value / 1000000}M` } } } } });
     createChart('stakingChart', { type: 'bar', data: { labels: ['Flexible', '30-Day', '90-Day', '180-Day', '1-Year', '2-Year', '3-Year', '4-Year'], datasets: [{ label: 'Base Reward Multiplier', data: [1.0, 1.2, 1.5, 2.0, 3.0, 4.5, 6.0, 8.0], backgroundColor: '#3b82f6', borderColor: '#1e3a8a', borderWidth: 1, borderRadius: 4, }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: '#9ca3af' }, title: { display: true, text: 'Reward Multiplier (e.g., 1.0x)', color: '#9ca3af' } }, y: { grid: { display: false }, ticks: { color: '#9ca3af' } } }, plugins: { legend: { display: false } } } });
     // --- END: CHART RENDERING ---
 
