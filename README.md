@@ -1,1 +1,894 @@
-# ico-website
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mQsala | Technical & Investment Deep Dive</title>
+
+    <!-- ─── Favicons (browser tab) - Using Placeholders ───────────────────────────── -->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/05080a/ffffff?text=M">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/05080a/ffffff?text=M">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/05080a/ffffff?text=M">
+
+    <!-- ─── Social / SEO Meta Tags ───────────────────────── -->
+    <meta name="description" content="Deep-dive into the mQsala ecosystem: UUPS upgradeable BEP-20 with ERC20Votes, whitelist transfers, tokenomics, roadmap, and on-demand services.">
+    <meta name="keywords" content="mQsala, mQsala Coin, cryptocurrency, blockchain, laundry, on-demand service, ICO, BEP-20, utility token, Saudi Arabia, Dubai, MENA, staking, DAO, tokenomics, tech stack, UUPS upgradeable, ERC20Votes, whitelist transfers">
+    <meta name="author" content="mQsala">
+    <link rel="canonical" href="https://ico.mqsala.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ico.mqsala.com/">
+    <meta property="og:title" content="mQsala | Technical & Investment Deep Dive">
+    <meta property="og:description" content="Explore the mQsala UUPS upgradeable BEP-20 token, with ERC20Votes, whitelist transfers, detailed tokenomics, roadmap, and our investment proposition.">
+    <meta property="og:image" content="assets/logo/og-card-1200x630.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ico.mqsala.com/">
+    <meta property="twitter:title" content="mQsala | Technical & Investment Deep Dive">
+    <meta property="twitter:description" content="Explore the mQsala UUPS upgradeable BEP-20 token, with ERC20Votes, whitelist transfers, detailed tokenomics, roadmap, and our investment proposition.">
+    <meta property="twitter:image" content="assets/logo/og-card-1200x630.png">
+
+    <!-- Schema.org for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "mQsala",
+      "url": "https://ico.mqsala.com/",
+      "logo": "https://placehold.co/180x180/05080a/ffffff?text=M"
+    }
+    </script>
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+    
+    <style>
+        :root {
+            --bg-primary: #05080a;
+            --bg-secondary: #0a0f14;
+            --surface-primary: #111827;
+            --surface-secondary: #1f2937;
+            --border-primary: #374151;
+            --text-primary: #f0f8ff;
+            --text-secondary: #9ca3af;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #60a5fa;
+            --accent-gold: #f59e0b;
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 2rem 2rem;
+        }
+        html[dir="rtl"] body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .section-title { color: var(--accent-secondary); font-size: 1.875rem; font-weight: 700; }
+        .gradient-text { background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Header & Navigation */
+        .header { background-color: rgba(5, 8, 10, 0.8); backdrop-filter: blur(12px); }
+        .nav-link { transition: color 0.3s ease; position: relative; color: var(--text-secondary); }
+        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; transform: translateX(-50%); background-color: var(--accent-primary); transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Buttons */
+        .btn { padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
+        .btn-primary { background-color: var(--accent-primary); color: white; box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39); }
+        .btn-primary:hover { background-color: var(--accent-secondary); transform: translateY(-2px); box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.5); }
+        .btn-secondary { background-color: transparent; color: var(--accent-secondary); border: 2px solid var(--accent-primary); }
+        .btn-secondary:hover { background-color: var(--accent-primary); color: white; }
+
+        /* Cards */
+        .card, .glass-card { background: linear-gradient(145deg, var(--surface-primary), var(--surface-secondary)); border: 1px solid var(--border-primary); transition: all 0.3s ease; position: relative; overflow: hidden; border-radius: 1rem; }
+        .card { height: 100%; display: flex; flex-direction: column; }
+        .card-content { flex-grow: 1; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.3); border-color: var(--accent-primary); }
+        .contract-card .badge { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.75rem; font-weight: bold; padding: 0.25rem 0.5rem; border-radius: 9999px; color: white; }
+        html[dir="rtl"] .contract-card .badge { right: auto; left: 0.75rem; }
+        .badge.audited { background-color: var(--success-color); }
+        .badge.under-audit { background-color: var(--warning-color); }
+        .badge.planned { background-color: var(--accent-primary); }
+        .more-info-btn { margin-top: auto; padding-top: 1rem; color: var(--accent-secondary); font-weight: 600; transition: color 0.2s; }
+        .more-info-btn:hover { color: var(--text-primary); }
+
+        /* Flowchart / Timeline */
+        .flow-step { position: relative; padding-bottom: 2.5rem; }
+        html[dir="ltr"] .flow-step { padding-left: 2.5rem; }
+        html[dir="rtl"] .flow-step { padding-right: 2.5rem; }
+        .flow-step:before { content: ''; position: absolute; top: 0.25rem; bottom: -0.25rem; width: 2px; background-color: var(--border-primary); }
+        html[dir="ltr"] .flow-step:before { left: 0.6rem; }
+        html[dir="rtl"] .flow-step:before { right: 0.6rem; }
+        .flow-step:last-child { padding-bottom: 0; }
+        .flow-step:last-child:before { display: none; }
+        .flow-dot { position: absolute; top: 0.25rem; width: 1.25rem; height: 1.25rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--accent-primary); background-color: var(--bg-secondary); }
+        html[dir="ltr"] .flow-dot { left: -0.0625rem; }
+        html[dir="rtl"] .flow-dot { right: -0.0625rem; }
+
+        .timeline { position: relative; max-width: 48rem; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--surface-secondary); top: 0; bottom: 0; z-index: 0; }
+        html[dir="ltr"] .timeline::after { left: 1.25rem; transform: translateX(-50%); }
+        html[dir="rtl"] .timeline::after { right: 1.25rem; transform: translateX(50%); }
+        .timeline-item { position: relative; padding-bottom: 2rem; }
+        html[dir="ltr"] .timeline-item { padding-left: 3.5rem; }
+        html[dir="rtl"] .timeline-item { padding-right: 3.5rem; }
+        .timeline-dot { position: absolute; top: 0; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; border-radius: 9999px; border: 4px solid var(--surface-secondary); z-index: 1; font-weight: bold; color:white; }
+        html[dir="ltr"] .timeline-dot { left: 1.25rem; transform: translateX(-50%); }
+        html[dir="rtl"] .timeline-dot { right: 1.25rem; transform: translateX(50%); }
+        .timeline-dot.achieved { background-color: var(--success-color); }
+        .timeline-dot.pending { background-color: var(--accent-primary); }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); animation: fadeIn 0.4s; }
+        .modal-content { background: var(--surface-primary); margin: 8% auto; padding: 2rem; border: 1px solid var(--border-primary); width: 90%; max-width: 700px; border-radius: 12px; animation: slideIn 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .close-btn { color: var(--text-secondary); float: right; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+        html[dir="rtl"] .close-btn { float: left; }
+        .close-btn:hover, .close-btn:focus { color: white; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        /* Code & Tables */
+        pre[class*="language-"] { background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--border-primary); direction: ltr; text-align: left; }
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-primary); }
+        thead th { background-color: var(--surface-primary); color: var(--text-primary); font-weight: 600; font-size: 0.875rem; }
+        tbody tr:last-child td { border-bottom: 0; }
+        tbody tr:hover { background-color: var(--surface-secondary); }
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 1rem; text-align: center; max-width: 50rem; margin-left: auto; margin-right: auto; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="header sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">
+                <img src="https://placehold.co/138x40/05080a/ffffff?text=mQsala" alt="mQsala Logo" class="h-10 inline-block" width="138" height="40">
+            </a>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#invest" class="nav-link font-medium" data-key="nav_invest">Why Invest</a>
+                <a href="#roadmap" class="nav-link font-medium" data-key="nav_roadmap">Roadmap</a>
+                <a href="#tech" class="nav-link font-medium" data-key="nav_tech">Technology</a>
+                <a href="#tokenomics" class="nav-link font-medium" data-key="nav_tokenomics">Tokenomics</a>
+                <a href="#governance" class="nav-link font-medium" data-key="governance_title">Governance</a>
+                <a href="#team" class="nav-link font-medium" data-key="nav_team">Team</a>
+                <button id="lang-switcher" class="font-bold text-white hover:text-accent-gold transition-colors">AR</button>
+            </div>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Open main menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface-primary">
+            <a href="#invest" class="block py-2 px-6 text-sm nav-link" data-key="nav_invest_mob">Why Invest</a>
+            <a href="#roadmap" class="block py-2 px-6 text-sm nav-link" data-key="nav_roadmap_mob">Roadmap</a>
+            <a href="#tech" class="block py-2 px-6 text-sm nav-link" data-key="nav_tech_mob">Technology</a>
+            <a href="#tokenomics" class="block py-2 px-6 text-sm nav-link" data-key="nav_tokenomics_mob">Tokenomics</a>
+            <a href="#governance" class="block py-2 px-6 text-sm nav-link" data-key="governance_title">Governance</a>
+            <a href="#team" class="block py-2 px-6 text-sm nav-link" data-key="nav_team_mob">Team</a>
+            <button id="lang-switcher-mobile" class="w-full text-left py-2 px-6 text-sm text-white font-bold hover:bg-surface-secondary">AR</button>
+        </div>
+    </header>
+
+    <main class="space-y-24">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-24 md:py-40">
+            <div class="container mx-auto px-6">
+                <img src="assets/logo/og-card-1200x630.png" alt="mQsala Logo" class="h-32 md:h-48 mx-auto mb-8" onerror="this.onerror=null;this.src='https://placehold.co/400x210/05080a/ffffff?text=mQsala+Logo';">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4" data-key="hero_title">Revolutionizing the Laundry Industry</h1>
+                <p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-8" data-key="hero_subtitle">The first fully integrated on-demand laundry ecosystem in the MENA region, powered by the mQsala utility token.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#" class="btn btn-primary w-full sm:w-auto" data-key="hero_cta_buy">Buy mQsala Token Now</a>
+                    <a href="https://docs.mqsala.com" target="_blank" class="btn btn-secondary w-full sm:w-auto" data-key="hero_cta_whitepaper">Read The Whitepaper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners" class="py-12 bg-bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-text-secondary font-semibold mb-6 tracking-widest uppercase" data-key="partners_title">Trusted &amp; Secured By</h2>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:gap-8 justify-center gap-4 opacity-90">
+                    <div class="inline-flex items-center justify-center p-0">
+                        <img src="src/Images/Assure DeFi/Assure DeFi.png" alt="Assure DeFi Logo" class="w-16 h-16 object-contain" title="Assure DeFi" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/64x64/0a0f14/ffffff?text=Assure';">
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-lg text-text-primary">Assure DeFi</p>
+                        <p class="text-sm text-text-secondary" data-key="partners_assure">Preliminary Security Audit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Investment Highlights -->
+        <section id="invest" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="invest_title">Why Invest in mQsala?</h2>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="invest_subtitle">Tapping into a multi-billion dollar market with a first-mover advantage and a robust, tech-driven ecosystem.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-6"><div class="card-content"><h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card1_title">Massive Market Opportunity</h3><p class="text-text-secondary" data-key="invest_card1_desc">The MENA laundry market is valued at over $5 billion, yet it remains fragmented and technologically underserved. mQsala is positioned to capture a significant market share by providing a modern, unified solution.</p></div></div>
+                    <div class="card p-6"><div class="card-content"><h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card2_title">The Problem: Inefficiency</h3><p class="text-text-secondary" data-key="invest_card2_desc">Customers face inconvenient, cash-based services with no transparency. Laundry operators struggle with outdated tools, inefficient logistics, and a lack of data to drive growth.</p></div></div>
+                    <div class="card p-6"><div class="card-content"><h3 class="font-bold text-xl mb-3 text-accent-gold" data-key="invest_card3_title">The Solution: mQsala Ecosystem</h3><p class="text-text-secondary" data-key="invest_card3_desc">A four-app platform for customers, drivers, laundries, and admins, integrated with the mQsala token for payments, staking, loyalty rewards, and governance.</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="py-20 bg-bg-secondary">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="roadmap_title">Our Journey & Future Roadmap</h2>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="roadmap_subtitle">From a solidified idea to a global expansion plan, we are executing with precision.</p>
+                </div>
+                <div id="roadmap-timeline" class="timeline"></div>
+                 <p class="text-center text-lg text-accent-secondary mt-12" data-key="roadmap_more">& MORE... For further details, please refer to our <a href="https://docs.mqsala.com" target="_blank" class="font-bold underline hover:text-white">whitepaper</a></p>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="tech" class="py-20">
+            <div class="container mx-auto px-6 space-y-20">
+                <div class="text-center">
+                     <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="tech_title">A Deep Dive into Our Technology</h2>
+                     <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="tech_subtitle">Explore the architecture, stack, and processes that make mQsala a robust and scalable platform.</p>
+                </div>
+                <!-- Architecture -->
+                <div class="bg-surface-primary/50 p-6 md:p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-blue-300" data-key="arch_title">Microservices Architecture</h3>
+                    <p class="text-center text-gray-400 mb-10 max-w-3xl mx-auto" data-key="arch_subtitle">Click any component to explore its function within our robust, decoupled ecosystem.</p>
+                    <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+                        <div class="w-full lg:w-2/3"><svg viewBox="0 0 800 500" class="w-full h-auto"><defs><linearGradient id="grad-accent" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:var(--accent-primary)" /><stop offset="100%" style="stop-color:var(--accent-secondary)" /></linearGradient><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#888" /></marker></defs><g class="interactive-diagram-node" data-info-key="frontend"><rect x="50" y="150" width="180" height="200" rx="15" fill="url(#grad-accent)"/><text x="140" y="240" font-size="20" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_frontend_1">Frontend Clients</text><text x="140" y="265" font-size="14" fill="white" text-anchor="middle" data-key="arch_node_frontend_2">Mobile & Web Apps</text></g><g class="interactive-diagram-node" data-info-key="gateway"><rect x="310" y="200" width="180" height="100" rx="15" fill="#1f2937" stroke="#4b5563" stroke-width="1"/><text x="400" y="240" font-size="20" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_gateway_1">API Gateway</text><text x="400" y="265" font-size="14" fill="#9ca3af" text-anchor="middle" data-key="arch_node_gateway_2">Single Entry Point</text></g><g class="interactive-diagram-node" data-info-key="microservices"><rect x="570" y="50" width="180" height="70" rx="15" fill="#111827" stroke="#4b5563" stroke-width="1"/><text x="660" y="85" font-size="16" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_ms_1">Auth Service</text><rect x="570" y="140" width="180" height="70" rx="15" fill="#111827" stroke="#4b5563" stroke-width="1"/><text x="660" y="175" font-size="16" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_ms_2">Order Service</text><rect x="570" y="230" width="180" height="70" rx="15" fill="#111827" stroke="#4b5563" stroke-width="1"/><text x="660" y="265" font-size="16" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_ms_3">Partner Service</text><rect x="570" y="320" width="180" height="70" rx="15" fill="#111827" stroke="#4b5563" stroke-width="1"/><text x="660" y="355" font-size="16" fill="white" text-anchor="middle" font-weight="bold" data-key="arch_node_ms_4">Payment Service</text><text x="660" y="420" font-size="16" fill="#9ca3af" text-anchor="middle" font-weight="bold" data-key="arch_node_ms_5">... and more</text></g><path d="M 230 250 H 310" stroke="#888" stroke-width="2" marker-end="url(#arrow)" fill="none"/><path d="M 490 250 L 570 85" stroke="#888" stroke-width="2" marker-end="url(#arrow)" fill="none"/><path d="M 490 250 L 570 175" stroke="#888" stroke-width="2" marker-end="url(#arrow)" fill="none"/><path d="M 490 250 L 570 265" stroke="#888" stroke-width="2" marker-end="url(#arrow)" fill="none"/><path d="M 490 250 L 570 355" stroke="#888" stroke-width="2" marker-end="url(#arrow)" fill="none"/></svg></div>
+                        <div id="info-architecture" class="w-full lg:w-1/3 bg-gray-900 p-6 rounded-lg info-box"><h3 class="font-bold text-xl mb-2 text-white" data-key="arch_info_title">Select a Component</h3><p class="text-gray-400" data-key="arch_info_default">Click a component in the diagram to see its details, strategic purpose, and core technologies.</p></div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div>
+                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="stack_title">Enterprise-Grade Technology Stack</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                         <div class="card p-8 rounded-xl text-center"><div class="card-content"><h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_frontend">Frontend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_frontend_desc">Modern, responsive, and cross-platform user interfaces.</p><div class="flex justify-center items-center flex-wrap gap-6 mt-auto"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js Logo" class="h-20 w-20" title="Next.js" width="80" height="80"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native Logo" class="h-20 w-20" title="React Native" width="80" height="80"/></div></div></div>
+                        <div class="card p-8 rounded-xl text-center"><div class="card-content"><h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_backend">Backend</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_backend_desc">A scalable microservices architecture for our core logic.</p><div class="flex justify-center items-center flex-wrap gap-6 mt-auto"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" alt="NestJS Logo" class="h-20 w-20" title="NestJS" width="80" height="80" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Logo" class="h-20 w-20" title="PostgreSQL" width="80" height="80"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB Logo" class="h-20 w-20" title="MongoDB" width="80" height="80"/></div></div></div>
+                        <div class="card p-8 rounded-xl text-center"><div class="card-content"><h3 class="text-2xl font-bold mb-6 text-white tracking-wide" data-key="stack_infra">Infrastructure</h3><p class="text-gray-400 mb-8 flex-grow" data-key="stack_infra_desc">Robust, scalable, and automated infrastructure for high availability.</p><div class="flex justify-center items-center flex-wrap gap-6 mt-auto"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS Logo" class="h-20 w-20" title="AWS EKS" width="80" height="80" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" class="h-20 w-20" title="Docker" width="80" height="80"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-plain.svg" alt="ArgoCD Logo" class="h-20 w-20" title="Argo CD" width="80" height="80"/></div></div></div>
+                    </div>
+                </div>
+
+                <!-- Smart Contracts -->
+                <div>
+                     <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="smart_contracts_title">Audited & Planned Smart Contract Suite</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="token-modal"><div class="card-content"><div class="badge under-audit">Under Audit</div><h3 class="text-xl font-semibold text-white mb-2" data-key="token_card_title">mQsalaToken</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="token_card_desc">Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.</p><img src="assets/logo/favicon-32 no background.png" alt="mQsala Token Logo" class="h-16 w-16 mx-auto mt-4" onerror="this.onerror=null;this.src='https://placehold.co/64x64/111827/ffffff?text=M';"><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="ico-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="ico_card_title">ICO & Vesting</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="ico_card_desc">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="staking-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="staking_card_title">Staking</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="staking_card_desc">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="dao-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="dao_card_title">Governance (DAO)</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="dao_card_desc">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                    </div>
+                </div>
+
+                <!-- CI/CD -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="cicd_title">Automated GitOps CI/CD Pipeline</h3>
+                    <p class="text-center text-gray-400 mb-10 max-w-3xl mx-auto" data-key="cicd_subtitle">Click each stage to learn how we ensure rapid, reliable, and consistent delivery of new features and fixes.</p>
+                    <div class="flex flex-col xl:flex-row items-stretch justify-center gap-8">
+                        <div class="w-full xl:w-2/3">
+                             <svg viewBox="0 0 800 500" class="w-full h-auto bg-surface-secondary rounded-lg p-4"><defs><linearGradient id="grad-arrow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#374151"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient><marker id="arrow-grad" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="url(#grad-arrow)" /></marker></defs><g class="interactive-diagram-node" data-info-key="cicd_repo"><rect x="50" y="215" width="150" height="70" rx="10" fill="#1f2937" stroke="#4b5563" stroke-width="2"/><text x="125" y="245" fill="white" font-weight="bold" text-anchor="middle">1. Code Push</text><text x="125" y="265" fill="#9ca3af" font-size="12" text-anchor="middle">GitHub / GitLab</text></g><g class="interactive-diagram-node" data-info-key="cicd_pipeline"><rect x="325" y="50" width="150" height="70" rx="10" fill="#1f2937" stroke="#4b5563" stroke-width="2"/><text x="400" y="80" fill="white" font-weight="bold" text-anchor="middle">2. CI Pipeline</text><text x="400" y="100" fill="#9ca3af" font-size="12" text-anchor="middle">Jenkins</text></g><g class="interactive-diagram-node" data-info-key="cicd_registry"><rect x="325" y="215" width="150" height="70" rx="10" fill="#1f2937" stroke="#4b5563" stroke-width="2"/><text x="400" y="245" fill="white" font-weight="bold" text-anchor="middle">3. Registry Push</text><text x="400" y="265" fill="#9ca3af" font-size="12" text-anchor="middle">Docker</text></g><g class="interactive-diagram-node" data-info-key="cicd_argocd"><rect x="325" y="380" width="150" height="70" rx="10" fill="#1f2937" stroke="#4b5563" stroke-width="2"/><text x="400" y="410" fill="white" font-weight="bold" text-anchor="middle">4. GitOps Sync</text><text x="400" y="430" fill="#9ca3af" font-size="12" text-anchor="middle">Argo CD</text></g><g class="interactive-diagram-node" data-info-key="cicd_k8s"><rect x="600" y="215" width="150" height="70" rx="10" fill="#1f2937" stroke="#4b5563" stroke-width="2"/><text x="675" y="245" fill="white" font-weight="bold" text-anchor="middle">5. Deployment</text><text x="675" y="265" fill="#9ca3af" font-size="12" text-anchor="middle">Kubernetes (EKS)</text></g><path d="M 200 230 C 250 200, 275 100, 325 85" stroke="url(#grad-arrow)" stroke-width="2" marker-end="url(#arrow-grad)" fill="none" stroke-dasharray="4"/><path d="M 400 120 V 215" stroke="url(#grad-arrow)" stroke-width="2" marker-end="url(#arrow-grad)" fill="none" stroke-dasharray="4"/><path d="M 400 285 V 380" stroke="url(#grad-arrow)" stroke-width="2" marker-end="url(#arrow-grad)" fill="none" stroke-dasharray="4"/><path d="M 475 250 C 525 250, 550 250, 600 250" stroke="url(#grad-arrow)" stroke-width="2" marker-end="url(#arrow-grad)" fill="none" stroke-dasharray="4"/><path d="M 475 415 C 550 415, 575 285, 600 260" stroke="url(#grad-arrow)" stroke-width="2" marker-end="url(#arrow-grad)" fill="none" stroke-dasharray="4"/></svg>
+                        </div>
+                        <div id="info-cicd" class="w-full xl:w-1/3 bg-surface-secondary p-6 rounded-lg info-box"><h3 class="font-bold text-xl mb-2 text-white" data-key="cicd_info_title">Select a Stage</h3><p class="text-gray-400" data-key="cicd_info_default">Click a stage in the pipeline to understand its value in delivering robust software efficiently.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics & Staking -->
+        <section id="tokenomics" class="py-20 bg-bg-secondary">
+            <div class="container mx-auto px-6 space-y-24">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="tokenomics_full_title">Token Economy: Allocation & Staking</h2>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="tokenomics_full_subtitle">A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment. Auto-burn starts at 0% and can be raised (max 20%) by DAO vote.</p>
+                </div>
+
+                <!-- Key Financial Metrics -->
+                <section>
+                    <h3 class="section-title mb-2 text-center" data-key="financial_metrics_title">Key Financial Metrics</h3>
+                    <p class="text-center text-text-secondary mb-8" data-key="financial_metrics_subtitle">Projections based on the planned token sale structure.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_raise">Total Projected Raise</p><p class="text-3xl font-bold mt-2">$293.2M</p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_supply">Initial Circulating Supply</p><p class="text-3xl font-bold mt-2">23.75M <span class="text-lg text-text-secondary">MQSLA</span></p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_market_cap">Initial Market Cap (IDO Price)</p><p class="text-3xl font-bold mt-2">$24.94M</p></div>
+                        <div class="glass-card rounded-2xl p-6"><p class="text-sm font-medium text-text-secondary" data-key="metrics_fdv">Fully Diluted Valuation (IDO Price)</p><p class="text-3xl font-bold mt-2">$1.05B</p></div>
+                    </div>
+                </section>
+                
+                <!-- Token Allocation -->
+                <section>
+                    <h3 class="section-title mb-8 text-center" data-key="allocation_summary_title">Token Allocation Summary</h3>
+                    <div class="glass-card rounded-2xl p-6 md:p-8">
+                        <canvas id="allocationPieChart"></canvas>
+                    </div>
+                </section>
+
+                 <!-- Sale Round Allocations -->
+                <section>
+                    <h3 class="section-title mb-8 text-center" data-key="sale_rounds_title">Sale Round Allocations (40%)</h3>
+                    <div class="glass-card rounded-2xl p-2 md:p-4 table-container">
+                        <table>
+                            <thead><tr><th data-key="table_header_round">Round / Segment</th><th data-key="table_header_tokens">Tokens (M)</th><th data-key="table_header_supply">% Supply</th><th data-key="table_header_price">Price (USD)</th><th data-key="table_header_raise">Raise (USD)</th><th data-key="table_header_cliff">Cliff</th><th data-key="table_header_vesting">Vesting Details</th><th data-key="table_header_window">Sale Window</th></tr></thead>
+                            <tbody>
+                                <tr><td>Angel</td><td>15</td><td>1.5%</td><td>$0.10</td><td>$1.5M</td><td>6m</td><td>24m daily vesting</td><td>10 d</td></tr>
+                                <tr><td>Private A</td><td>65</td><td>6.5%</td><td>$0.40</td><td>$26.0M</td><td>12m</td><td>30m daily vesting</td><td>TBD</td></tr>
+                                <tr><td>Private B</td><td>75</td><td>7.5%</td><td>$0.60</td><td>$45.0M</td><td>15m</td><td>33m daily vesting</td><td>TBD</td></tr>
+                                <tr><td>Private C</td><td>85</td><td>8.5%</td><td>$0.80</td><td>$68.0M</td><td>18m</td><td>36m daily vesting</td><td>TBD</td></tr>
+                                <tr><td>Strategic Partnerships</td><td>90</td><td>9.0%</td><td>$0.88</td><td>$79.2M</td><td>9m</td><td>24m daily vesting</td><td>TBD</td></tr>
+                                <tr><td>Public IDO / CEX</td><td>70</td><td>7.0%</td><td>$1.05</td><td>$73.5M</td><td>0m</td><td>25% at TGE, 75% over 12m daily</td><td>TBD</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Internal Allocations -->
+                <section>
+                    <h3 class="section-title mb-8 text-center" data-key="internal_alloc_title">Internal Allocations (60%)</h3>
+                     <div class="glass-card rounded-2xl p-2 md:p-4 table-container">
+                        <table>
+                            <thead><tr><th data-key="table_header_bucket">Bucket</th><th data-key="table_header_tokens_2">Tokens (M)</th><th data-key="table_header_supply_2">% Supply</th><th data-key="table_header_cliff_2">Cliff</th><th data-key="table_header_vesting_2">Vesting</th><th data-key="table_header_purpose">Purpose</th></tr></thead>
+                            <tbody>
+                                <tr><td>Core Team & Founders</td><td>130</td><td>13.0%</td><td>24m</td><td>48m linear</td><td>Long-term alignment</td></tr>
+                                <tr><td>Advisors & Contributors</td><td>30</td><td>3.0%</td><td>12m</td><td>24m linear</td><td>Specialist talent</td></tr>
+                                <tr><td>Ecosystem Fund</td><td>120</td><td>12.0%</td><td>3m</td><td>36m milestone</td><td>Grants & integrations</td></tr>
+                                <tr><td>Staking & Liquidity</td><td>150</td><td>15.0%</td><td>0m</td><td>48m annual halving</td><td>Network security</td></tr>
+                                <tr><td>User Rewards & Loyalty</td><td>60</td><td>6.0%</td><td>0m</td><td>36m monthly</td><td>Adoption flywheel</td></tr>
+                                <tr><td>DAO Treasury</td><td>60</td><td>6.0%</td><td>6m</td><td>10%/yr vote</td><td>Strategic operations</td></tr>
+                                <tr><td>Marketing & Growth</td><td>30</td><td>3.0%</td><td>3m</td><td>24m linear</td><td>Brand expansion</td></tr>
+                                <tr><td>Legal & IP</td><td>10</td><td>1.0%</td><td>6m</td><td>36m semi-annual</td><td>Compliance reserve</td></tr>
+                                <tr><td>Emergency & Security</td><td>10</td><td>1.0%</td><td>12m</td><td>As-needed</td><td>Incident response</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- DETAILED EMISSION SCHEDULES -->
+                <section>
+                    <h3 class="section-title mb-8 text-center" data-key="emission_schedule_title">Detailed Emission & Vesting Schedules</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <div class="glass-card rounded-2xl p-4 md:p-6"><h3 class="font-bold text-xl mb-4 text-center" data-key="cumulative_vested_title">Cumulative Monthly Vested Tokens (Quantity)</h3><div class="h-96"><canvas id="cumulativeEmissionsQtyChart"></canvas></div></div>
+                        <div class="card p-6 h-full">
+                            <div class="card-content">
+                                <h3 class="font-bold text-2xl mb-4 text-center text-white" data-key="staking_title">Staking Protocol</h3>
+                                <p class="mt-2 text-text-secondary text-center mb-6" data-key="staking_subtitle">Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.</p>
+                                <div class="h-96"><canvas id="stakingChart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- Governance Section -->
+        <section id="governance" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="governance_title">DAO Governance & Security</h2>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="governance_subtitle">Powered by a custom Governor contract featuring Quadratic Voting and Sybil attack resistance through Proof-of-Personhood verification.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <div class="card p-6"><div class="card-content"><h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card1_title">Quadratic Voting & Sybil Resistance</h3><p class="text-text-secondary mb-4" data-key="governance_card1_p1">Standard voting is 1 token = 1 vote. Quadratic voting calculates power as $$\\sqrt{\\text{tokenAmount}}$$, significantly reducing the influence of large "whale" wallets and encouraging broader participation.</p><p class="text-red-400 font-semibold mb-2" data-key="governance_card1_p2_problem">The Problem:</p><p class="text-text-secondary mb-4" data-key="governance_card1_p3">A whale could bypass this by splitting tokens across thousands of wallets (a Sybil attack).</p><p class="text-green-400 font-semibold mb-2" data-key="governance_card1_p4_solution">The Solution: Proof-of-Personhood</p><p class="text-text-secondary" data-key="governance_card1_p5">By requiring a privacy-preserving verification (e.g., World ID), the DAO ensures that each vote comes from a unique human, making the quadratic voting system fair and robust.</p></div></div>
+                    <div class="card p-6"><div class="card-content"><h3 class="font-bold text-xl mb-4 text-accent-gold" data-key="governance_card2_title">The Governance Process</h3><div class="relative" id="governance-flow"></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20 bg-bg-secondary">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title" data-key="team_title">Meet Our Team</h2>
+                    <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="team_subtitle">A blend of serial entrepreneurs, tech visionaries, and business leaders committed to the mQsala vision.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Nusrath';"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Hamdan';"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Masarath';"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Liaqath';"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-bg-secondary text-text-secondary text-center p-8 mt-24">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://x.com/mQsala_official" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="https://www.instagram.com/mqsala_official/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.116 0-3.483.01-4.695.068-2.61.12-3.834 1.344-3.953 3.953-.058 1.21-.068 1.58-.068 4.695s.01 3.485.068 4.695c.12 2.61 1.344 3.834 3.953 3.953 1.21.058 1.58.068 4.695.068s3.485-.01 4.695-.068c2.61-.12 3.834-1.344 3.953-3.953.058-1.21.068-1.58.068-4.695s-.01-3.485-.068-4.695c-.12-2.61-1.344-3.834-3.953-3.953C15.483 3.975 15.116 3.965 12 3.965zM12 6.837a5.163 5.163 0 100 10.326 5.163 5.163 0 000-10.326zm0 8.528a3.363 3.363 0 110-6.726 3.363 3.363 0 010 6.726zM18.84 5.92a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+                <a href="https://t.me/mqsala_official" target="_blank" rel="noopener noreferrer" aria-label="Join us on Telegram" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.65 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.28 1.4.24 1.15.99l-2.4 11.5c-.21.98-1.04 1.22-1.82.75L14 16.22l-3.29 3.05c-.37.36-.88.17-1.02-.27z"/></svg></a>
+            </div>
+            <p data-key="footer_text">&copy; 2025 mQsala. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals Container -->
+    <div id="modals-container"></div>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- START: GLOBAL CONFIG & DATA ---
+    const IDO_PRICE = 1.05;
+
+    // --- CHART.JS DEFAULTS ---
+    const chartTextColor = 'rgba(245, 245, 245, 0.8)';
+    const chartGridColor = 'rgba(255, 255, 255, 0.1)';
+    Chart.defaults.color = chartTextColor;
+    Chart.defaults.borderColor = chartGridColor;
+    
+    // --- DATA DEFINITIONS ---
+    const allocationData = {
+        labels: ['Sale Rounds', 'Staking & Liquidity', 'Core Team & Founders', 'Ecosystem Fund', 'User Rewards & Loyalty', 'DAO Treasury', 'Advisors & Contributors', 'Marketing & Growth', 'Legal & IP', 'Emergency & Security'],
+        datasets: [{ data: [40.0, 15.0, 13.0, 12.0, 6.0, 6.0, 3.0, 3.0, 1.0, 1.0], backgroundColor: ['#0ea5e9', '#d946ef', '#4f46e5', '#a855f7', '#ec4899', '#db2777', '#7c3aed', '#e11d48', '#f43f5e', '#64748b'], borderWidth: 0 }]
+    };
+    const monthlyEmissionDataQty = [23750000, 1666666, 1666666, 21979166, 1666666, 1666666, 30520833, 1666666, 1666666, 26145833, 1666666, 1666666, 44270833, 2708333, 2708333, 28125000, 2708333, 2708333, 49479166, 2708333, 2708333, 2708333, 2708333, 2708333, 44791666, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 33541666, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 17812500, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 1250000, 8437500, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333, 2708333];
+    const cumulativeEmissionDataQty = monthlyEmissionDataQty.map((sum => value => sum += value)(0));
+
+    const translations = {
+        en: {
+            nav_invest: 'Why Invest', nav_roadmap: 'Roadmap', nav_tech: 'Technology', nav_tokenomics: 'Tokenomics', nav_team: 'Team',
+            nav_invest_mob: 'Why Invest', nav_roadmap_mob: 'Roadmap', nav_tech_mob: 'Technology', nav_tokenomics_mob: 'Tokenomics', nav_team_mob: 'Team',
+            hero_title: 'Revolutionizing the Laundry Industry', hero_subtitle: 'The first fully integrated on-demand laundry ecosystem in the MENA region, powered by the mQsala utility token.',
+            hero_cta_buy: 'Buy mQsala Token Now', hero_cta_whitepaper: 'Read The Whitepaper',
+            partners_title: 'TRUSTED & SECURED BY', partners_assure: 'Preliminary Security Audit',
+            invest_title: 'Why Invest in mQsala?', invest_subtitle: 'Tapping into a multi-billion dollar market with a first-mover advantage and a robust, tech-driven ecosystem.',
+            invest_card1_title: 'Massive Market Opportunity', invest_card1_desc: 'The MENA laundry market is valued at over $5 billion, yet it remains fragmented and technologically underserved. mQsala is positioned to capture a significant market share by providing a modern, unified solution.',
+            invest_card2_title: 'The Problem: Inefficiency', invest_card2_desc: 'Customers face inconvenient, cash-based services with no transparency. Laundry operators struggle with outdated tools, inefficient logistics, and a lack of data to drive growth.',
+            invest_card3_title: 'The Solution: mQsala Ecosystem', invest_card3_desc: 'A four-app platform for customers, drivers, laundries, and admins, integrated with the mQsala token for payments, staking, loyalty rewards, and governance.',
+            roadmap_title: 'Our Journey & Future Roadmap', roadmap_subtitle: 'From a solidified idea to a global expansion plan, we are executing with precision.',
+            roadmap_more: 'And much more — all outlined in our whitepaper.',
+            tech_title: 'A Deep Dive into Our Technology', tech_subtitle: 'Explore the architecture, stack, and processes that make mQsala a robust and scalable platform.',
+            arch_title: 'Microservices Architecture', arch_subtitle: 'Click any component to explore its function within our robust, decoupled ecosystem.',
+            arch_info_title: 'Select a Component', arch_info_default: 'Click a component in the diagram to see its details, strategic purpose, and core technologies.',
+            arch_node_frontend_1: 'Frontend Clients', arch_node_frontend_2: 'Mobile & Web Apps',
+            arch_node_gateway_1: 'API Gateway', arch_node_gateway_2: 'Single Entry Point',
+            arch_node_ms_1: 'Auth Service', arch_node_ms_2: 'Order Service', arch_node_ms_3: 'Partner Service',
+            arch_node_ms_4: 'Payment Service', arch_node_ms_5: '... and more',
+            stack_title: 'Enterprise-Grade Technology Stack', stack_frontend: 'Frontend', stack_frontend_desc: 'Modern, responsive, and cross-platform user interfaces.',
+            stack_backend: 'Backend', stack_backend_desc: 'A scalable microservices architecture for our core logic.',
+            stack_infra: 'Infrastructure', stack_infra_desc: 'Robust, scalable, and automated infrastructure for high availability.',
+            smart_contracts_title: 'Audited & Planned Smart Contract Suite',
+            token_card_title: 'mQsalaToken',
+            token_card_desc: 'Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.',
+            ico_card_title: 'ICO & Vesting',
+            ico_card_desc: 'Manages multi-stage token sales and immutable, time-locked vesting schedules.',
+            staking_card_title: 'Staking',
+            staking_card_desc: 'Enables utility-only staking for in-app benefits with dynamic, tiered rewards.',
+            dao_card_title: 'Governance (DAO)',
+            dao_card_desc: 'Facilitates decentralized voting on protocol parameters via a timelocked DAO.',
+            cicd_title: 'Automated GitOps CI/CD Pipeline', cicd_subtitle: 'Click each stage to learn how we ensure rapid, reliable, and consistent delivery of new features and fixes.',
+            cicd_info_title: 'Select a Stage', cicd_info_default: 'Click a stage in the pipeline to understand its value in delivering robust software efficiently.',
+            tokenomics_full_title: 'Token Economy: Allocation & Staking', tokenomics_full_subtitle: 'A transparent, fixed-supply model designed for long-term growth, coupled with a utility-driven staking protocol to reward community alignment. Auto-burn starts at 0% and can be raised (max 20%) by DAO vote.',
+            staking_title: 'Staking Protocol', staking_subtitle: 'Reward long-term holders with multiple staking pools. Rewards are dynamically adjusted based on protocol fees.',
+            governance_title: 'DAO Governance & Security', governance_subtitle: 'Powered by a custom Governor contract featuring Quadratic Voting and Sybil attack resistance through Proof-of-Personhood verification.',
+            governance_card1_title: 'Quadratic Voting & Sybil Resistance',
+            governance_card1_p1: 'Standard voting is 1 token = 1 vote. Quadratic voting calculates power as $$\\sqrt{\\text{tokenAmount}}$$, significantly reducing the influence of large "whale" wallets and encouraging broader participation.',
+            governance_card1_p2_problem: 'The Problem:', governance_card1_p3: 'A whale could bypass this by splitting tokens across thousands of wallets (a Sybil attack).',
+            governance_card1_p4_solution: 'The Solution: Proof-of-Personhood', governance_card1_p5: 'By requiring a privacy-preserving verification (e.g., World ID), the DAO ensures that each vote comes from a unique human, making the quadratic voting system fair and robust.',
+            governance_card2_title: 'The Governance Process',
+            flow_step1_title: 'Proposal', flow_step1_desc: 'A user holding ≥10% of total supply submits a proposal. setBurnBP and upgrades are executed via Timelock after community vote.',
+            flow_step2_title: 'Voting Period (7 Days)', flow_step2_desc: 'Community members cast their quadratic vote, verified by Proof-of-Personhood to ensure one person, one vote.',
+            flow_step3_title: 'Timelock', flow_step3_desc: 'If passed, the proposal enters a mandatory delay period, allowing users to react to the outcome.',
+            flow_step4_title: 'Execution', flow_step4_desc: 'After the timelock, the proposal\'s code is automatically executed.',
+            team_title: 'Meet Our Team', team_subtitle: 'A blend of serial entrepreneurs, tech visionaries, and business leaders committed to the mQsala vision.',
+            team_member1_name: 'Nusrath Mohammed', team_member1_title: 'Co-Founder & Chairman', team_member1_desc: 'Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala\'s mission.',
+            team_member2_name: 'Hamdan Alghamdi', team_member2_title: 'Co-Founder & CEO', team_member2_desc: 'Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.',
+            team_member3_name: 'Masarath Durraj', team_member3_title: 'Co-Founder & CTO', team_member3_desc: 'Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.',
+            team_member4_name: 'Liaqath Ali', team_member4_title: 'Co-Founder & COO', team_member4_desc: 'Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.',
+            footer_text: '© 2025 mQsala. All rights reserved.',
+            more_info: 'More Information',
+            modal_token_title: 'mQsalaToken Contract',
+            modal_key_features: 'Key Features',
+            modal_token_feature1: 'Standard BEP-20 implementation (OpenZeppelin).',
+            modal_token_feature2: 'Hard-capped supply at 1 Billion tokens.',
+            modal_token_feature3: 'Role-Based Access Control (Admin, Minter, Burner).',
+            modal_token_feature4: 'Up to 20% burn on loyalty reward minting (rate initially 0%).',
+            modal_token_feature5: 'Licence-gated P2P transfers & whitelisting.',
+            modal_contract_header: 'Contract Header: MQSLAToken.sol',
+            modal_security_focus: 'Security Focus',
+            modal_token_security: 'Built on audited OpenZeppelin contracts. Upgradeable via UUPS proxy pattern to allow for future enhancements and security patches approved by governance.',
+            modal_ico_title: 'ICO & Vesting Contract',
+            modal_ico_feature1: 'Manages multi-stage ICO rounds with configurable pricing and allocations.',
+            modal_ico_feature2: 'Automates vesting schedules with cliffs and linear daily release.',
+            modal_ico_feature3: 'Handles vesting for both external investors and internal team/ecosystem allocations.',
+            modal_logic_example: 'Core Logic Example: Linear Vesting Formula',
+            modal_ico_security: 'Vesting schedules are immutable once created. All state-changing functions are access-controlled. Utilizes checked arithmetic to prevent overflows.',
+            modal_staking_title: 'Staking Contract',
+            modal_staking_feature1: 'Utility-only staking: rewards are in-app perks, not financial returns.',
+            modal_staking_feature2: 'Multiple staking pools (Flexible, 30-day, 1-year, etc.).',
+            modal_staking_feature3: 'Tiered APY structure: longer lock-up periods yield higher rewards (in the form of greater discounts/perks).',
+            modal_staking_feature4: 'Early withdrawal penalties to discourage breaking locks.',
+            modal_staking_feature5: 'Dynamic reward rates adjustable by governance based on platform performance.',
+            modal_staking_logic_example: 'Core Logic Example: Early Withdrawal Penalty',
+            modal_staking_security: 'Uses Checks-Effects-Interactions pattern to prevent re-entrancy. Pausable by an admin/DAO in emergencies. Thoroughly audited to protect user funds.',
+            modal_dao_title: 'Governance (DAO) Contract',
+            modal_dao_feature1: 'Quadratic Voting to reduce whale influence and promote broader consensus.',
+            modal_dao_feature2: 'High proposal threshold (10% of supply) to prevent spam.',
+            modal_dao_feature3: 'Timelock for execution, providing a delay for community review.',
+            modal_dao_feature4: 'Manages DAO Treasury funds and protocol parameters like fee ratios and burn rates.',
+            modal_dao_logic_example: 'Core Logic Example: Quadratic Voting',
+            modal_dao_security: 'Based on OpenZeppelin Governor framework. All proposals are transparent and recorded on-chain. Timelock prevents immediate, un-reviewed changes to the protocol.',
+            'Q1 2023_period': 'Q1 2023', 'Q1 2023_task': 'Crystallizing the idea and studying the Saudi and UAE markets.',
+            'Q2 2023_period': 'Q2 2023', 'Q2 2023_task': 'Regulatory research, TAM/SAM analysis, and assembling the founding team.',
+            'Q3 2023_period': 'Q3 2023', 'Q3 2023_task': 'UI/UX design and planning the microservices architecture.',
+            'Q4 2023_period': 'Q4 2023', 'Q4 2023_task': 'Full development of the non-blockchain platform (four applications).',
+            'Q4 2024_period': 'Q4 2024', 'Q4 2024_task': 'Establishment of mQsala FZCO in Dubai DWTC.',
+            'Q1 2025_period': 'Q1 2025', 'Q1 2025_task': 'Issuing contract portfolios, MISA sub-license in Riyadh, creating mQsala contracts.',
+            'Q2 2025_period': 'Q2 2025', 'Q2 2025_task': 'Launch of ICO website, deploying contracts on Testnet, internal security review.',
+            'Phase 1_period': 'Phase 1', 'Phase 1_task': 'Activating payments, discounts, and loyalty rewards immediately after ICO. Set official TGE timestamp on-chain (single-use).',
+            'Phase 2_period': 'Phase 2', 'Phase 2_task': 'Launching Staking & Referral programs, automatic partner settlements.',
+            'Phase 3_period': 'Phase 3', 'Phase 3_task': 'Live DAO platform, governance over burn & fee, bridging to Layer-2s.',
+            'Phase 4_period': 'Phase 4', 'Phase 4_task': 'GCC expansion (Kuwait/Oman/Bahrain).',
+            'Phase 5_period': 'Phase 5', 'Phase 5_task': 'Entering broader Middle East markets, then Asia and Europe.',
+            financial_metrics_title: 'Key Financial Metrics',
+            financial_metrics_subtitle: 'Projections based on the planned token sale structure.',
+            metrics_raise: 'Total Projected Raise',
+            metrics_supply: 'Initial Circulating Supply',
+            metrics_market_cap: 'Initial Market Cap (IDO Price)',
+            metrics_fdv: 'Fully Diluted Valuation (IDO Price)',
+            allocation_summary_title: 'Token Allocation Summary',
+            sale_rounds_title: 'Sale Round Allocations (40%)',
+            table_header_round: 'Round / Segment',
+            table_header_tokens: 'Tokens (M)',
+            table_header_supply: '% Supply',
+            table_header_price: 'Price (USD)',
+            table_header_raise: 'Raise (USD)',
+            table_header_cliff: 'Cliff',
+            table_header_vesting: 'Vesting Details',
+            table_header_window: 'Sale Window',
+            internal_alloc_title: 'Internal Allocations (60%)',
+            table_header_bucket: 'Bucket',
+            table_header_tokens_2: 'Tokens (M)',
+            table_header_supply_2: '% Supply',
+            table_header_cliff_2: 'Cliff',
+            table_header_vesting_2: 'Vesting',
+            table_header_purpose: 'Purpose',
+            emission_schedule_title: 'Detailed Emission & Vesting Schedules',
+            cumulative_vested_title: 'Cumulative Monthly Vested Tokens (Quantity)',
+        },
+        ar: {
+            nav_invest: 'لماذا الاستثمار؟', nav_roadmap: 'خارطة الطريق', nav_tech: 'التقنية', nav_tokenomics: 'اقتصاديات التوكن', nav_team: 'الفريق',
+            nav_invest_mob: 'لماذا الاستثمار؟', nav_roadmap_mob: 'خارطة الطريق', nav_tech_mob: 'التقنية', nav_tokenomics_mob: 'اقتصاديات التوكن', nav_team_mob: 'الفريق',
+            hero_title: 'نحدث ثورة في قطاع المغاسل', hero_subtitle: 'أول منظومة متكاملة لخدمات المغاسل عند الطلب في منطقة الشرق الأوسط وشمال أفريقيا، مدعومة بتوكن mQsala.',
+            hero_cta_buy: 'اشترِ توكن mQsala الآن', hero_cta_whitepaper: 'اقرأ المستند التقني',
+            partners_title: 'موثوق ومؤمَّن بواسطة', partners_assure: 'مراجعة أمنية أولية',
+            invest_title: 'لماذا تستثمر في mQsala؟', invest_subtitle: 'نستهدف سوقاً بمليارات الدولارات بميزة المحرك الأول ومنظومة قوية قائمة على التكنولوجيا.',
+            invest_card1_title: 'فرصة سوقية هائلة', invest_card1_desc: 'تقدر قيمة سوق المغاسل في الشرق الأوسط وشمال أفريقيا بأكثر من 5 مليارات دولار، لكنه لا يزال مجزأً ومتأخراً تقنياً. mQsala في وضع يمكنها من الاستحواذ على حصة سوقية كبيرة.',
+            invest_card2_title: 'المشكلة: انعدام الكفاءة', invest_card2_desc: 'يواجه العملاء خدمات غير مريحة تعتمد على الدفع النقدي مع انعدام الشفافية. ويعاني أصحاب المغاسل من أدوات قديمة ولوجستيات غير فعالة ونقص في البيانات.',
+            invest_card3_title: 'الحل: منظومة mQsala', invest_card3_desc: 'منصة بأربعة تطبيقات للعملاء والسائقين والمغاسل والمديرين، متكاملة مع توكن mQsala للمدفوعات، والـ Staking، ومكافآت الولاء، والحوكمة.',
+            roadmap_title: 'رحلتنا وخارطة الطريق المستقبلية', roadmap_subtitle: 'من فكرة راسخة إلى خطة توسع عالمية، نحن ننفذ بدقة.',
+            roadmap_more: 'والمزيد، يرجى مراجعة المستند التقني الخاص بنا',
+            tech_title: 'نظرة تقنية عميقة', tech_subtitle: 'استكشف البنية، الحزم التقنية، والعمليات التي تجعل من mQsala منصة قوية وقابلة للتطوير.',
+            arch_title: 'بنية الخدمات المصغرة', arch_subtitle: 'انقر على أي مكون لاستكشاف وظيفته داخل منظومتنا القوية والمفصولة.',
+            arch_info_title: 'اختر مكوناً', arch_info_default: 'انقر على أحد المكونات في الرسم البياني لعرض تفاصيله وهدفه الاستراتيجي والتقنيات الأساسية.',
+            arch_node_frontend_1: 'عملاء الواجهة الأمامية', arch_node_frontend_2: 'تطبيقات الجوال والويب',
+            arch_node_gateway_1: 'بوابة API', arch_node_gateway_2: 'نقطة دخول موحدة',
+            arch_node_ms_1: 'خدمة المصادقة', arch_node_ms_2: 'خدمة الطلبات', arch_node_ms_3: 'خدمة الشركاء',
+            arch_node_ms_4: 'خدمة الدفع', arch_node_ms_5: '... وغيرها',
+            stack_title: 'حزمة تقنية على مستوى الشركات', stack_frontend: 'الواجهة الأمامية', stack_frontend_desc: 'واجهات مستخدم حديثة ومتجاوبة ومتعددة المنصات.',
+            stack_backend: 'الواجهة الخلفية', stack_backend_desc: 'بنية خدمات مصغرة قابلة للتطوير لمنطق عملنا الأساسي.',
+            stack_infra: 'البنية التحتية', stack_infra_desc: 'بنية تحتية قوية وقابلة للتطوير ومؤتمتة لضمان التوافر العالي.',
+            smart_contracts_title: 'مجموعة العقود الذكية المخطط لها والمدققة',
+            token_card_title: 'توكن mQsala',
+            token_card_desc: 'توكن BEP-20 قابل للترقية (UUPS) • سقف أعلى 1 مليار • حرق تلقائي ديناميكي (0-20%) • تحويلات مقيدة بالترخيص • ERC20Votes/Permit.',
+            ico_card_title: 'الطرح الأولي للعملة (ICO) والتوزيع',
+            ico_card_desc: 'إدارة مبيعات التوكن متعددة المراحل وجداول التوزيع غير القابلة للتغيير والمقيدة زمنيًا.',
+            staking_card_title: 'التخزين (Staking)',
+            staking_card_desc: 'تمكين التخزين للمنفعة فقط للحصول على مزايا داخل التطبيق مع مكافآت متدرجة ديناميكية.',
+            dao_card_title: 'الحوكمة (DAO)',
+            dao_card_desc: 'تسهيل التصويت اللامركزي على معلمات البروتوكول عبر منظمة مستقلة ذات قفل زمني.',
+            cicd_title: 'خط أنابيب CI/CD المؤتمت بنظام GitOps', cicd_subtitle: 'انقر على كل مرحلة لمعرفة كيف نضمن تسليم الميزات والإصلاحات الجديدة بسرعة وموثوقية.',
+            cicd_info_title: 'اختر مرحلة', cicd_info_default: 'انقر على مرحلة في خط الأنابيب لفهم قيمتها في تقديم برامج قوية بكفاءة.',
+            tokenomics_full_title: 'اقتصاديات التوكن والتخزين', tokenomics_full_subtitle: 'نموذج شفاف ثابت العرض مصمم للنمو طويل الأمد، مقترنًا ببروتوكول تخزين مدفوع بالمنفعة لمكافأة توافق المجتمع. يبدأ الحرق التلقائي من 0% ويمكن رفعه (بحد أقصى 20%) عبر تصويت المنظمة المستقلة.',
+            staking_title: 'بروتوكول التخزين (Staking)', staking_subtitle: 'كافئ الحاملين على المدى الطويل بمجمعات تخزين متعددة. يتم تعديل المكافآت ديناميكياً بناءً على رسوم البروتوكول.',
+            governance_title: 'حوكمة المنظمة المستقلة (DAO) والأمان', governance_subtitle: 'مدعومة بعقد حوكمة مخصص يتميز بالتصويت التربيعي ومقاومة هجمات سيبيل من خلال التحقق من إثبات الشخصية.',
+            governance_card1_title: 'التصويت التربيعي ومقاومة هجمات سيبيل',
+            governance_card1_p1: 'التصويت القياسي هو 1 توكن = 1 صوت. التصويت التربيعي يحسب القوة على أنها الجذر التربيعي لمبلغ التوكن، مما يقلل بشكل كبير من تأثير "الحيتان" ويشجع على مشاركة أوسع.',
+            governance_card1_p2_problem: 'المشكلة:', governance_card1_p3: 'يمكن للحوت تجاوز ذلك عن طريق تقسيم التوكنات عبر آلاف المحافظ (هجوم سيبيل).',
+            governance_card1_p4_solution: 'الحل: إثبات الشخصية', governance_card1_p5: 'من خلال طلب التحقق الذي يحافظ على الخصوصية (مثل World ID)، تضمن المنظمة أن كل صوت يأتي من إنسان فريد، مما يجعل نظام التصويت التربيعي عادلاً وقوياً.',
+            governance_card2_title: 'عملية الحوكمة',
+            flow_step1_title: 'الاقتراح', flow_step1_desc: 'يقدم مستخدم يمتلك ≥10٪ من إجمالي العرض اقتراحًا. يتم تنفيذ setBurnBP والترقيات عبر Timelock بعد تصويت المجتمع.',
+            flow_step2_title: 'فترة التصويت (7 أيام)', flow_step2_desc: 'يدلي أعضاء المجتمع بأصواتهم التربيعية، مع التحقق من إثبات الشخصية لضمان شخص واحد، صوت واحد.',
+            flow_step3_title: 'القفل الزمني', flow_step3_desc: 'إذا تم تمرير الاقتراح، فإنه يدخل في فترة تأخير إلزامية، مما يسمح للمستخدمين بالرد على النتيجة.',
+            flow_step4_title: 'التنفيذ', flow_step4_desc: 'بعد القفل الزمني، يتم تنفيذ كود الاقتراح تلقائيًا.',
+            team_title: 'تعرف على فريقنا', team_subtitle: 'مزيج من رواد الأعمال المتسلسلين وأصحاب الرؤى التقنية وقادة الأعمال الملتزمين برؤية mQsala.',
+            team_member1_name: 'نصرة محمد', team_member1_title: 'الشريك المؤسس ورئيس مجلس الإدارة', team_member1_desc: 'رائد أعمال صاحب رؤية يتمتع بعقد من الخبرة في القيادة التنفيذية، ويستفيد من شبكته الواسعة لدفع مهمة mQsala.',
+            team_member2_name: 'حمدان الغامدي', team_member2_title: 'الشريك المؤسس والرئيس التنفيذي', team_member2_desc: 'رائد أعمال وخبير قانوني بارع يقود التوسع الاستراتيجي لشركة mQsala بينما يتنقل في الأطر التنظيمية والشركات الدولية المعقدة.',
+            team_member3_name: 'مسرة دراج', team_member3_title: 'الشريك المؤسس والمدير التقني', team_member3_desc: 'قائد تقني بارع يتمتع بخبرة تزيد عن 15 عامًا في تصميم حلول التجارة الإلكترونية والسحابة على مستوى الشركات لأشهر العلامات التجارية.',
+            team_member4_name: 'لياكة علي', team_member4_title: 'الشريك المؤسس والمدير التنفيذي للعمليات', team_member4_desc: 'مدير تنفيذي للعمليات متمرس يتمتع بخبرة تزيد عن 25 عامًا، ويشرف على التميز التشغيلي والكفاءة اللوجستية والسلامة المالية لشركة mQsala.',
+            footer_text: '© 2025 mQsala. جميع الحقوق محفوظة.',
+            more_info: 'مزيد من المعلومات',
+            modal_token_title: 'عقد توكن mQsala',
+            modal_key_features: 'الميزات الرئيسية',
+            modal_token_feature1: 'تطبيق قياسي لـ BEP-20 (OpenZeppelin).',
+            modal_token_feature2: 'إجمالي المعروض محدود بـ 1 مليار توكن.',
+            modal_token_feature3: 'تحكم في الوصول قائم على الأدوار (مسؤول، مُصدر، حارق).',
+            modal_token_feature4: 'حرق يصل إلى 20% عند إصدار مكافآت الولاء (المعدل مبدئيًا 0%).',
+            modal_token_feature5: 'تحويلات من نظير إلى نظير مقيدة بالترخيص والقائمة البيضاء.',
+            modal_contract_header: 'رأس العقد: MQSLAToken.sol',
+            modal_security_focus: 'التركيز على الأمان',
+            modal_token_security: 'مبني على عقود OpenZeppelin المدققة. قابل للترقية عبر نمط بروكسي UUPS للسماح بالتحسينات المستقبلية وتصحيحات الأمان المعتمدة من قبل الحوكمة.',
+            modal_ico_title: 'عقد الطرح الأولي للعملة (ICO) والتوزيع',
+            modal_ico_feature1: 'يدير جولات الطرح الأولي متعددة المراحل بأسعار وتخصيصات قابلة للتكوين.',
+            modal_ico_feature2: 'أتمتة جداول التوزيع مع فترات حجز وإصدار يومي خطي.',
+            modal_ico_feature3: 'يتعامل مع توزيعات المستثمرين الخارجيين وتخصيصات الفريق والنظام البيئي الداخلية.',
+            modal_logic_example: 'مثال على المنطق الأساسي: صيغة التوزيع الخطي',
+            modal_ico_security: 'جداول التوزيع غير قابلة للتغيير بمجرد إنشائها. جميع وظائف تغيير الحالة يتم التحكم في الوصول إليها. يستخدم العمليات الحسابية المحددة لمنع الأخطاء.',
+            modal_staking_title: 'عقد التخزين (Staking)',
+            modal_staking_feature1: 'تخزين للمنفعة فقط: المكافآت هي مزايا داخل التطبيق، وليست عوائد مالية.',
+            modal_staking_feature2: 'مجمعات تخزين متعددة (مرن، 30 يومًا، سنة واحدة، إلخ).',
+            modal_staking_feature3: 'هيكل مكافآت متدرج: فترات الحجز الأطول تحقق مكافآت أعلى (في شكل خصومات/مزايا أكبر).',
+            modal_staking_feature4: 'عقوبات على السحب المبكر لتثبيط كسر الأقفال.',
+            modal_staking_feature5: 'معدلات مكافآت ديناميكية قابلة للتعديل من قبل الحوكمة بناءً على أداء المنصة.',
+            modal_staking_logic_example: 'مثال على المنطق الأساسي: عقوبة السحب المبكر',
+            modal_staking_security: 'يستخدم نمط "فحص-تأثير-تفاعل" لمنع هجمات إعادة الدخول. قابل للإيقاف المؤقت من قبل المسؤول/المنظمة المستقلة في حالات الطوارئ. مدقق بالكامل لحماية أموال المستخدمين.',
+            modal_dao_title: 'عقد الحوكمة (DAO)',
+            modal_dao_feature1: 'تصويت تربيعي لتقليل تأثير الحيتان وتعزيز الإجماع الأوسع.',
+            modal_dao_feature2: 'عتبة اقتراح عالية (10% من المعروض) لمنع الرسائل غير المرغوب فيها.',
+            modal_dao_feature3: 'قفل زمني للتنفيذ، مما يوفر تأخيرًا لمراجعة المجتمع.',
+            modal_dao_feature4: 'إدارة أموال خزانة المنظمة ومعلمات البروتوكول مثل نسب الرسوم ومعدلات الحرق.',
+            modal_dao_logic_example: 'مثال على المنطق الأساسي: التصويت التربيعي',
+            modal_dao_security: 'مبني على إطار عمل OpenZeppelin Governor. جميع المقترحات شفافة ومسجلة على السلسلة. يمنع القفل الزمني التغييرات الفورية وغير المراجعة على البروتوكول.',
+            'Q1 2023_period': 'الربع الأول 2023', 'Q1 2023_task': 'بلورة الفكرة ودراسة السوق السعودي والإماراتي.',
+            'Q2 2023_period': 'الربع الثاني 2023', 'Q2 2023_task': 'أبحاث تنظيمية، تحليل TAM/SAM، وتجميع الفريق المؤسِّس.',
+            'Q3 2023_period': 'الربع الثالث 2023', 'Q3 2023_task': 'تصميم UI/UX، تخطيط بنية الخدمات المصغّرة.',
+            'Q4 2023_period': 'الربع الرابع 2023', 'Q4 2023_task': 'تطوير المنصة غير البلوك-تشين بالكامل (أربعة تطبيقات).',
+            'Q4 2024_period': 'الربع الرابع 2024', 'Q4 2024_task': 'تأسيس mQsala FZCO في دبي DWTC.',
+            'Q1 2025_period': 'الربع الأول 2025', 'Q1 2025_task': 'إصدار محافظ العقود، ترخيص MISA الفرعي بالرياض، إنشاء عقود mQsala.',
+            'Q2 2025_period': 'الربع الثاني 2025', 'Q2 2025_task': 'إطلاق موقع ICO، نشر العقود في Testnet، مراجعة أمنية داخلية.',
+            'Phase 1_period': 'المرحلة الأولى', 'Phase 1_task': 'تفعيل المدفوعات، الخصومات، ومكافآت الولاء فور انتهاء ICO. تعيين الطابع الزمني الرسمي لـ TGE على السلسلة (استخدام مرة واحدة).',
+            'Phase 2_period': 'المرحلة الثانية', 'Phase 2_task': 'إطلاق Staking & Referral، تسويات شركاء أوتوماتيكية.',
+            'Phase 3_period': 'المرحلة الثالثة', 'Phase 3_task': 'منصة DAO حية، حوكمة burn & fee، جسر لطبقات ثانية.',
+            'Phase 4_period': 'المرحلة الرابعة', 'Phase 4_task': 'التوسع خليجياً (الكويت/عُمان/البحرين).',
+            'Phase 5_period': 'المرحلة الخامسة', 'Phase 5_task': 'دخول أسواق الشرق الأوسط الواسعة ثم آسيا وأوروبا.',
+            financial_metrics_title: 'المؤشرات المالية الرئيسية',
+            financial_metrics_subtitle: 'التوقعات بناءً على هيكل بيع التوكن المخطط له.',
+            metrics_raise: 'إجمالي التمويل المتوقع',
+            metrics_supply: 'العرض الأولي المتداول',
+            metrics_market_cap: 'القيمة السوقية الأولية (بسعر IDO)',
+            metrics_fdv: 'التقييم المخفف بالكامل (بسعر IDO)',
+            allocation_summary_title: 'ملخص تخصيص التوكن',
+            sale_rounds_title: 'تخصيصات جولات البيع (40%)',
+            table_header_round: 'الجولة / الشريحة',
+            table_header_tokens: 'التوكن (مليون)',
+            table_header_supply: 'نسبة العرض',
+            table_header_price: 'السعر (USD)',
+            table_header_raise: 'التمويل (USD)',
+            table_header_cliff: 'فترة الحجز',
+            table_header_vesting: 'تفاصيل التوزيع',
+            table_header_window: 'نافذة البيع',
+            internal_alloc_title: 'التخصيصات الداخلية (60%)',
+            table_header_bucket: 'الشريحة',
+            table_header_tokens_2: 'التوكن (مليون)',
+            table_header_supply_2: 'نسبة العرض',
+            table_header_cliff_2: 'فترة الحجز',
+            table_header_vesting_2: 'التوزيع',
+            table_header_purpose: 'الغرض',
+            emission_schedule_title: 'جداول الإصدار والتوزيع التفصيلية',
+            cumulative_vested_title: 'التوكنات الموزعة شهريًا (تراكمي)',
+        }
+    };
+    
+    const roadmapData = [
+        { periodKey: 'Q1 2023', taskKey: 'Q1 2023_task', achieved: true }, { periodKey: 'Q2 2023', taskKey: 'Q2 2023_task', achieved: true },
+        { periodKey: 'Q3 2023', taskKey: 'Q3 2023_task', achieved: true }, { periodKey: 'Q4 2023', taskKey: 'Q4 2023_task', achieved: true },
+        { periodKey: 'Q4 2024', taskKey: 'Q4 2024_task', achieved: true }, { periodKey: 'Q1 2025', taskKey: 'Q1 2025_task', achieved: true },
+        { periodKey: 'Q2 2025', taskKey: 'Q2 2025_task', achieved: true }, { periodKey: 'Phase 1', taskKey: 'Phase 1_task', achieved: false },
+        { periodKey: 'Phase 2', taskKey: 'Phase 2_task', achieved: false }, { periodKey: 'Phase 3', taskKey: 'Phase 3_task', achieved: false },
+        { periodKey: 'Phase 4', taskKey: 'Phase 4_task', achieved: false }, { periodKey: 'Phase 5', taskKey: 'Phase 5_task', achieved: false }
+    ];
+
+    const governanceFlowData = [
+        { titleKey: 'flow_step1_title', descKey: 'flow_step1_desc'}, { titleKey: 'flow_step2_title', descKey: 'flow_step2_desc'},
+        { titleKey: 'flow_step3_title', descKey: 'flow_step3_desc'}, { titleKey: 'flow_step4_title', descKey: 'flow_step4_desc'}
+    ];
+    
+    const infoData = {
+        en: {
+            architecture: {
+                frontend: { title: 'Frontend Applications', text: 'The user-facing layer, comprising four distinct apps: Customer, Captain, Partner, and Admin. Built with Next.js (Web) and React Native (Mobile) for a modern, responsive, and seamless cross-platform user experience.' },
+                gateway: { title: 'API Gateway', text: 'A single, secure entry point for all frontend requests. It routes traffic to the appropriate microservice, handles authentication (JWT), enforces rate limiting, and simplifies the system architecture by abstracting backend complexity.' },
+                microservices: { title: 'Microservices', text: 'The backend is built using NestJS. Each service is independent and focuses on a specific business capability (e.g., Auth, Orders, Partners, Payments). This allows for independent scaling, faster deployments, and improved fault isolation, which is critical for a high-availability platform.' },
+            },
+            cicd: {
+                cicd_repo: { title: '1. Code Push & Version Control', text: 'Developers push code to a centralized Git repository (GitHub/GitLab). This triggers the automated pipeline and serves as the single source of truth, enabling auditable change history.' },
+                cicd_pipeline: { title: '2. Continuous Integration (Jenkins)', text: 'Jenkins automates the CI process: compiling code, running a comprehensive suite of tests (unit, integration), and performing static code analysis. This ensures code quality and catches bugs early.' },
+                cicd_registry: { title: '3. Containerization (Docker)', text: 'Successful builds are packaged into lightweight, immutable Docker containers. These images are stored in a private registry, ensuring consistency across all environments from development to production.' },
+                cicd_argocd: { title: '4. Continuous Delivery (Argo CD)', text: 'Using a GitOps model, Argo CD monitors the manifest repository. When a change is detected, it automatically synchronizes the cluster state, ensuring deployments are declarative, version-controlled, and reliable.' },
+                cicd_k8s: { title: '5. Deployment (Kubernetes)', text: 'Argo CD deploys the containerized application to our Kubernetes cluster on AWS EKS. This provides automated scaling, self-healing, and efficient resource management across DEV, QA, and PROD environments.' }
+            }
+        },
+        ar: {
+             architecture: {
+                frontend: { title: 'تطبيقات الواجهة الأمامية', text: 'طبقة التطبيق المواجهة للمستخدم، تتألف من أربعة تطبيقات مميزة: للعملاء، للكباتن، للشركاء، وللإدارة. تم بناؤها باستخدام Next.js للويب و React Native لتطبيقات الجوال متعددة المنصات (iOS/Android)، مما يضمن تجربة مستخدم عصرية وسلسة.' },
+                gateway: { title: 'بوابة واجهة برمجة التطبيقات (API Gateway)', text: 'تعمل كنقطة دخول موحدة وآمنة لجميع طلبات الواجهة الأمامية. تقوم بتوجيه حركة المرور إلى الخدمة المصغرة المناسبة، وتتولى المصادقة (JWT)، وتفرض حدودًا على معدل الطلبات، وتبسط البنية العامة للنظام.' },
+                microservices: { title: 'الخدمات المصغرة (Microservices)', text: 'تم بناء الواجهة الخلفية باستخدام NestJS. كل خدمة مستقلة وتركز على قدرة عمل محددة (مثل المصادقة، الطلبات، الشركاء، الدفع). وهذا يسمح بالتوسع المستقل، ونشر أسرع، وعزل أفضل للأخطاء، وهو أمر بالغ الأهمية لمنصة تتطلب توافرًا عاليًا.' },
+            },
+            cicd: {
+                cicd_repo: { title: '1. دفع الكود والتحكم في الإصدار', text: 'يقوم المطورون بدفع تغييرات الكود إلى مستودع مركزي للتحكم في الإصدارات مثل GitHub أو GitLab. هذا يمثل المصدر الوحيد للحقيقة لجميع أكواد التطبيق ويتيح سجل تغييرات قابل للمراجعة.' },
+                cicd_pipeline: { title: '2. التكامل المستمر (Jenkins)', text: 'يقوم Jenkins بأتمتة عملية التكامل المستمر: تجميع الكود، وتشغيل مجموعة شاملة من الاختبارات (وحدات، تكامل)، وإجراء تحليل ثابت للكود. هذا يضمن جودة الكود ويكشف الأخطاء مبكرًا.' },
+                cicd_registry: { title: '3. الحاويات (Docker)', text: 'يتم تجميع البناء الناجح في حاويات Docker خفيفة الوزن وغير قابلة للتغيير. يتم تخزين هذه الصور في سجل خاص، مما يضمن الاتساق عبر جميع البيئات من التطوير إلى الإنتاج.' },
+                cicd_argocd: { title: '4. التسليم المستمر (Argo CD)', text: 'باستخدام نموذج GitOps، يراقب Argo CD مستودع البيان (manifest). عند اكتشاف تغيير، يقوم تلقائيًا بمزامنة حالة المجموعة، مما يضمن أن عمليات النشر إعلانية ومضبوطة الإصدار وموثوقة.' },
+                cicd_k8s: { title: '5. النشر (Kubernetes)', text: 'يقوم Argo CD بنشر التطبيق المعبأ في حاويات إلى مجموعة Kubernetes الخاصة بنا على AWS EKS. يوفر هذا التوسع التلقائي والشفاء الذاتي والإدارة الفعالة للموارد عبر بيئات DEV و QA و PROD.' }
+            }
+        }
+    };
+    // --- END: GLOBAL CONFIG & DATA ---
+
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        const langSwitcher = document.getElementById('lang-switcher');
+        const langSwitcherMobile = document.getElementById('lang-switcher-mobile');
+        if (langSwitcher) langSwitcher.textContent = lang === 'ar' ? 'EN' : 'AR';
+        if (langSwitcherMobile) langSwitcherMobile.textContent = lang === 'ar' ? 'EN' : 'AR';
+        
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+        
+        renderRoadmap();
+        renderGovernanceFlow();
+        buildModals();
+        if (window.MathJax) {
+            window.MathJax.typesetPromise();
+        }
+    }
+    
+    // --- START: RENDER FUNCTIONS ---
+    function renderRoadmap() {
+        const container = document.getElementById('roadmap-timeline');
+        if (!container) return;
+        container.innerHTML = '';
+        roadmapData.forEach((item) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = `timeline-item`;
+
+            const periodText = translations[currentLang][item.periodKey + '_period'] || item.periodKey;
+            const taskText = translations[currentLang][item.taskKey] || 'Task description missing';
+            
+            itemDiv.innerHTML = `
+                <div class="timeline-dot ${item.achieved ? 'achieved' : 'pending'}">${item.achieved ? '✓' : ''}</div>
+                <div class="p-4 rounded-lg bg-surface-primary/50">
+                    <h3 class="font-bold text-accent-secondary">${periodText}</h3>
+                    <p class="text-sm text-text-secondary">${taskText}</p>
+                </div>
+            `;
+            container.appendChild(itemDiv);
+        });
+    }
+    
+    function renderGovernanceFlow() {
+        const container = document.getElementById('governance-flow');
+        if(!container) return;
+        container.innerHTML = '';
+        governanceFlowData.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'flow-step';
+            const titleText = translations[currentLang][item.titleKey] || 'Title missing';
+            const descText = translations[currentLang][item.descKey] || 'Description missing';
+            el.innerHTML = `<div class="flow-dot"></div><h4 class="font-semibold text-white">${titleText}</h4><p class="text-sm text-text-secondary">${descText}</p>`;
+            container.appendChild(el);
+        });
+    }
+
+    
+    function buildModals() {
+        const modalsContainer = document.getElementById('modals-container');
+        if(!modalsContainer) return;
+        
+        const lang = translations[currentLang];
+
+        modalsContainer.innerHTML = `
+        <div id="token-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">${lang.modal_token_title}</h2><div class="space-y-4 text-text-primary"><h3 class="font-semibold text-lg">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_token_feature1}</li><li>${lang.modal_token_feature2}</li><li>${lang.modal_token_feature3}</li><li>${lang.modal_token_feature4}</li><li>${lang.modal_token_feature5}</li></ul><h3 class="font-semibold text-lg">${lang.modal_contract_header}</h3><pre class="language-solidity" dir="ltr"><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+// ... other imports
+contract mQsalaToken is Initializable, ERC20Upgradeable, ... { ... }</code></pre><h3 class="font-semibold text-lg">${lang.modal_security_focus}</h3><p>${lang.modal_token_security}</p></div></div></div>
+        <div id="ico-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">${lang.modal_ico_title}</h2><div class="space-y-4 text-text-primary"><h3 class="font-semibold text-lg">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_ico_feature1}</li><li>${lang.modal_ico_feature2}</li><li>${lang.modal_ico_feature3}</li></ul><h3 class="font-semibold text-lg">${lang.modal_logic_example}</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">Vested = (Total - Initial) * (Time - Cliff) / (End - Cliff)</p><h3 class="font-semibold text-lg">${lang.modal_security_focus}</h3><p>${lang.modal_ico_security}</p></div></div></div>
+        <div id="staking-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">${lang.modal_staking_title}</h2><div class="space-y-4 text-text-primary"><h3 class="font-semibold text-lg">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_staking_feature1}</li><li>${lang.modal_staking_feature2}</li><li>${lang.modal_staking_feature3}</li><li>${lang.modal_staking_feature4}</li><li>${lang.modal_staking_feature5}</li></ul><h3 class="font-semibold text-lg">${lang.modal_staking_logic_example}</h3><pre class="language-solidity" dir="ltr"><code>if (block.timestamp < unlockTime) {
+    uint256 penalty = amount * penaltyRate / 10000;
+    amountToReturn = amount - penalty;
+}</code></pre><h3 class="font-semibold text-lg">${lang.modal_security_focus}</h3><p>${lang.modal_staking_security}</p></div></div></div>
+        <div id="dao-modal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 class="text-2xl font-bold mb-4 text-blue-300">${lang.modal_dao_title}</h2><div class="space-y-4 text-text-primary"><h3 class="font-semibold text-lg">${lang.modal_key_features}</h3><ul class="list-disc list-inside mt-2 space-y-1"><li>${lang.modal_dao_feature1}</li><li>${lang.modal_dao_feature2}</li><li>${lang.modal_dao_feature3}</li><li>${lang.modal_dao_feature4}</li></ul><h3 class="font-semibold text-lg">${lang.modal_dao_logic_example}</h3><p class="bg-surface-secondary p-4 rounded-md mt-2 text-center text-lg font-mono">$$ \\text{Voting Power} = \\sqrt{\\text{Token Balance}} $$</p><h3 class="font-semibold text-lg">${lang.modal_security_focus}</h3><p>${lang.modal_dao_security}</p></div></div></div>
+        `;
+        attachModalEventListeners();
+    }
+    // --- END: RENDER FUNCTIONS ---
+    
+    // --- START: EVENT LISTENERS ---
+    function attachModalEventListeners() {
+        document.querySelectorAll('[data-modal-target]').forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = card.dataset.modalTarget;
+                const modal = document.getElementById(modalId)
+                if(modal) {
+                    modal.style.display = 'block';
+                    if(window.Prism) Prism.highlightAll();
+                    if(window.MathJax) window.MathJax.typesetPromise();
+                }
+            });
+        });
+        document.querySelectorAll('.close-btn').forEach(button => {
+            button.addEventListener('click', () => button.closest('.modal').style.display = 'none');
+        });
+        window.addEventListener('click', (event) => {
+            if(event.target.classList.contains('modal')) event.target.style.display = 'none';
+        });
+    }
+
+    document.getElementById('lang-switcher')?.addEventListener('click', () => switchLanguage(currentLang === 'en' ? 'ar' : 'en'));
+    document.getElementById('lang-switcher-mobile')?.addEventListener('click', () => switchLanguage(currentLang === 'en' ? 'ar' : 'en'));
+    document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.interactive-diagram-node').forEach(node => {
+        node.addEventListener('click', (e) => {
+            const key = e.currentTarget.dataset.infoKey;
+            const infoPane = e.currentTarget.closest('.flex').querySelector('.info-box');
+            let data;
+            if (infoPane.id === 'info-architecture') data = infoData[currentLang].architecture[key];
+            else if (infoPane.id === 'info-cicd') data = infoData[currentLang].cicd[key];
+            
+            if (infoPane && data) {
+                infoPane.innerHTML = `<h3 class="font-bold text-xl mb-2 text-white">${data.title}</h3><p class="text-gray-400">${data.text}</p>`;
+            }
+        });
+    });
+    // --- END: EVENT LISTENERS ---
+
+    // --- START: CHART RENDERING ---
+    function createChart(canvasId, config) {
+        const ctx = document.getElementById(canvasId);
+        if (ctx) {
+            new Chart(ctx, config);
+        }
+    }
+    
+    createChart('allocationPieChart', { type: 'doughnut', data: allocationData, options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 20 } } } } });
+    createChart('cumulativeEmissionsQtyChart', { type: 'line', data: { labels: Array.from({ length: 37 }, (_, i) => `M${i}`), datasets: [{ label: 'Cumulative Vested Tokens', data: cumulativeEmissionDataQty.slice(0, 37), borderColor: '#c026d3', backgroundColor: 'rgba(192, 38, 211, 0.2)', fill: true, tension: 0.4, }] }, options: { scales: { y: { ticks: { callback: value => `${value / 1000000}M` } } } } });
+    createChart('stakingChart', { type: 'bar', data: { labels: ['Flexible', '30-Day', '90-Day', '180-Day', '1-Year', '2-Year', '3-Year', '4-Year'], datasets: [{ label: 'Base Reward Multiplier', data: [1.0, 1.2, 1.5, 2.0, 3.0, 4.5, 6.0, 8.0], backgroundColor: '#3b82f6', borderColor: '#1e3a8a', borderWidth: 1, borderRadius: 4, }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: '#9ca3af' }, title: { display: true, text: 'Reward Multiplier (e.g., 1.0x)', color: '#9ca3af' } }, y: { grid: { display: false }, ticks: { color: '#9ca3af' } } }, plugins: { legend: { display: false } } } });
+    // --- END: CHART RENDERING ---
+
+    // --- INITIALIZATION ---
+    switchLanguage('en');
+    
+});
+</script>
+</body>
+</html>
