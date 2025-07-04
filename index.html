@@ -6,8 +6,8 @@
     <title>mQsala | Technical & Investment Deep Dive</title>
 
     <!-- ─── Favicons (browser tab) - Using Placeholders ───────────────────────────── -->
-    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/05080a/ffffff?text=M">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/05080a/ffffff?text=M">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/mqsala-official/ico-website/refs/heads/main/assets/logo/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/mqsala-official/ico-website/refs/heads/main/assets/logo/favicon-32%20no%20background.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/05080a/ffffff?text=M">
 
     <!-- ─── Social / SEO Meta Tags ───────────────────────── -->
@@ -206,13 +206,24 @@
         <section id="partners" class="py-12 bg-bg-secondary">
             <div class="container mx-auto px-12">
                 <h2 class="text-center text-text-secondary font-semibold mb-6 tracking-widest uppercase" data-key="partners_title">Trusted &amp; Secured By</h2>
-                <div class="flex flex-col sm:flex-row sm:items-center sm:gap-16 justify-center gap-4 opacity-90">
-                    <div class="inline-flex items-center justify-center p-0">
-                        <img src="src/Images/Assure DeFi/Verified by Assure Defi Seal.png" alt="Assure DeFi Logo" class="w-96 h-96 object-contain" title="Assure DeFi" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/384x384/0a0f14/ffffff?text=Assure';">
-                    </div>
-                    <div class="text-center">
-                        <p class="font-bold text-lg text-text-primary">Assure DeFi</p>
-                        <p class="text-sm text-text-secondary" data-key="partners_assure">Verified and audited by Assure DeFi (KYC & Audit)</p>
+                <!-- Adjusted structure for a more compact and themed display -->
+                <div class="flex items-center justify-center py-8">
+                    <div class="p-8 rounded-lg shadow-lg text-center max-w-sm w-full bg-white">
+                        <!-- HTML comment: This section displays the Assure DeFi verification badge. -->
+                        <!-- It's linked to the project page on Assure DeFi's website. -->
+                        <p class="mb-4">
+                            <a href='https://assuredefi.com/projects/mqsala-coin' target="_blank" rel="noopener noreferrer" class="inline-block">
+                                <img
+                                    src='https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/fd5650fa-46bf-4f1e-a8bf-139cd6fe7651/Verified_Badge_-_Stacked/w=1920,quality=90,fit=scale-down'
+                                    alt='Proudly Verified By Assure DeFi™'
+                                    class="mx-auto w-full h-auto rounded-lg shadow-md"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/349x100/FFD700/000000?text=Image+Not+Found';"
+                                />
+                            </a>
+                        </p>
+                        <p class="text-sm font-bold text-black">
+                            Click the image above to view the project verification on Assure DeFi.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -276,9 +287,9 @@
                      <h3 class="text-2xl font-bold mb-8 text-center text-blue-300" data-key="smart_contracts_title">Audited & Planned Smart Contract Suite</h3>
                      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="token-modal"><div class="card-content"><div class="badge under-audit">Under Audit</div><h3 class="text-xl font-semibold text-white mb-2" data-key="token_card_title">mQsalaToken</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="token_card_desc">Upgradeable BEP-20 (UUPS) • hard-cap 1 B • dynamic auto-burn (0–20 %) • licence-gated transfers • ERC20Votes/Permit.</p><img src="assets/logo/favicon-32 no background.png" alt="mQsala Token Logo" class="h-16 w-16 mx-auto mt-4" onerror="this.onerror=null;this.src='https://placehold.co/64x64/111827/ffffff?text=M';"><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
-                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="ico-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="ico_card_title">ICO & Vesting</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="ico_card_desc">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="ico-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="ico_card_title">ICO & Vesting</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="ico_card_desc">Manages multi-stage token sales and immutable, time-locked vesting schedules.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 2 0 01.707.293l5.414 5.414a1 2 0 01.293.707V19a2 2 0 01-2 2z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
                         <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="staking-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="staking_card_title">Staking</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="staking_card_desc">Enables utility-only staking for in-app benefits with dynamic, tiered rewards.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
-                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="dao-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="dao_card_title">Governance (DAO)</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="dao_card_desc">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
+                        <div class="card contract-card p-6 rounded-xl text-center cursor-pointer" data-modal-target="dao-modal"><div class="card-content"><div class="badge planned">Planned</div><h3 class="text-xl font-semibold text-white mb-2" data-key="dao_card_title">Governance (DAO)</h3><p class="text-sm text-gray-400 mb-4 flex-grow" data-key="dao_card_desc">Facilitates decentralized voting on protocol parameters via a timelocked DAO.</p><svg class="h-16 w-16 text-blue-400 mx-auto mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg><div class="more-info-btn" data-key="more_info">More Information</div></div></div>
                     </div>
                 </div>
 
@@ -403,7 +414,7 @@
                     <p class="mt-4 text-lg text-text-secondary max-w-3xl mx-auto" data-key="team_subtitle">A blend of serial entrepreneurs, tech visionaries, and business leaders committed to the mQsala vision.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Nusrath';"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala's mission.</p></div></div>
+                    <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Nusrath.jpeg" alt="Nusrath Mohammed" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Nusrath';"><h4 class="font-bold text-xl text-white" data-key="team_member1_name">Nusrath Mohammed</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member1_title">Co-Founder & Chairman</p><p class="text-text-secondary text-sm" data-key="team_member1_desc">Visionary entrepreneur with a decade of executive leadership, leveraging his extensive network to drive mQsala\'s mission.</p></div></div>
                     <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Hamdan.jpeg" alt="Hamdan Alghamdi" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Hamdan';"><h4 class="font-bold text-xl text-white" data-key="team_member2_name">Hamdan Alghamdi</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member2_title">Co-Founder & CEO</p><p class="text-text-secondary text-sm" data-key="team_member2_desc">Accomplished entrepreneur and legal expert leading strategic expansion while navigating complex international regulatory frameworks.</p></div></div>
                     <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Masarath.jpeg" alt="Masarath Durraj" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Masarath';"><h4 class="font-bold text-xl text-white" data-key="team_member3_name">Masarath Durraj</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member3_title">Co-Founder & CTO</p><p class="text-text-secondary text-sm" data-key="team_member3_desc">Highly accomplished tech leader with 15+ years of experience architecting enterprise-grade e-commerce and cloud solutions for Fortune 500 brands.</p></div></div>
                     <div class="card text-center p-6"><div class="card-content"><img class="w-32 h-32 rounded-full mx-auto mb-4 object-cover bg-surface-secondary" src="src/Images/Team/Liaqath.jpeg" alt="Liaqath Ali" width="128" height="128" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=Liaqath';"><h4 class="font-bold text-xl text-white" data-key="team_member4_name">Liaqath Ali</h4><p class="font-semibold text-accent-gold mb-2" data-key="team_member4_title">Co-Founder & COO</p><p class="text-text-secondary text-sm" data-key="team_member4_desc">Seasoned COO with 25+ years of experience in the GCC and Indian markets, overseeing operational excellence, logistical efficiency, and financial health.</p></div></div>
@@ -653,8 +664,8 @@ document.addEventListener('DOMContentLoaded', () => {
             modal_dao_feature2: 'عتبة اقتراح عالية (10% من المعروض) لمنع الرسائل غير المرغوب فيها.',
             modal_dao_feature3: 'قفل زمني للتنفيذ، مما يوفر تأخيرًا لمراجعة المجتمع.',
             modal_dao_feature4: 'إدارة أموال خزانة المنظمة ومعلمات البروتوكول مثل نسب الرسوم ومعدلات الحرق.',
-            modal_dao_logic_example: 'مثال على المنطق الأساسي: التصويت التربيعي',
-            modal_dao_security: 'مبني على إطار عمل OpenZeppelin Governor. جميع المقترحات شفافة ومسجلة على السلسلة. يمنع القفل الزمني التغييرات الفورية وغير المراجعة على البروتوكول.',
+            modal_dao_logic_example: 'Core Logic Example: Quadratic Voting',
+            modal_dao_security: 'Based on OpenZeppelin Governor framework. All proposals are transparent and recorded on-chain. Timelock prevents immediate, un-reviewed changes to the protocol.',
             'Q1 2023_period': 'الربع الأول 2023', 'Q1 2023_task': 'بلورة الفكرة ودراسة السوق السعودي والإماراتي.',
             'Q2 2023_period': 'الربع الثاني 2023', 'Q2 2023_task': 'أبحاث تنظيمية، تحليل TAM/SAM، وتجميع الفريق المؤسِّس.',
             'Q3 2023_period': 'الربع الثالث 2023', 'Q3 2023_task': 'تصميم UI/UX، تخطيط بنية الخدمات المصغّرة.',
